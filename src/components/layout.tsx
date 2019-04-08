@@ -8,9 +8,129 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+import { Footer } from './footer'
+// import "./layout.css"
 
-import { Header } from "./header"
-import "./layout.css"
+import { Global, css } from "@emotion/core"
+import styled from "@emotion/styled"
+
+const Wrapper = styled('div')`
+  margin: 0 auto;
+  max-width: 1020px;
+  padding 0px 20px 32px;
+  padding-top: 0;
+  min-height: calc(100vh - 355px);
+`
+
+const globalCss = css`
+  body {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292e;
+
+    font-feature-settings: "kern", "liga", "clig", "calt";
+
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    background-color: transparent;
+    color: #8158f5; /* #835AF6; */
+    -webkit-text-decoration-skip: objects;
+
+    &:active,
+    &:hover {
+      outline-width: 0;
+      color: #835AF6;
+    }
+
+    &:focus {
+      outline-color: #835AF6;
+      outline-style: solid;
+      outline-width: 1px;
+      outline-offset: 1px;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    margin-bottom: 1.45rem;
+    padding: 0;
+    color: inherit;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+    font-size: 2.25rem;
+    line-height: 1.1;
+  }
+  h2 {
+    margin: 0;
+    margin-bottom: 1.45rem;
+    padding: 0;
+    color: inherit;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+    font-size: 1.62671rem;
+    line-height: 1.1;
+  }
+  h3 {
+    margin: 0;
+    margin-bottom: 1.45rem;
+    padding: 0;
+    color: inherit;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+    font-size: 1.38316rem;
+    line-height: 1.1;
+  }
+
+  ol {
+    margin: 0;
+    margin-left: 1.45rem;
+    margin-bottom: 1.45rem;
+    padding: 0;
+    list-style-position: outside;
+    list-style-image: none;
+  }
+
+  dl {
+    margin: 0;
+    margin-bottom: 1.45rem;
+    padding: 0;
+  }
+
+  dd {
+    margin: 0;
+    margin-bottom: 1.45rem;
+    padding: 0;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 1.45rem;
+    padding: 0;
+
+    font-size: 1rem;
+  }
+
+  figure {
+    margin: 0;
+    margin-bottom: 1.45rem;
+    padding: 0;
+  }
+`
 
 export interface LayoutProps {
   children: React.ReactNode
@@ -40,6 +160,11 @@ queries: [
 }
 */
 
+interface CompanyData {
+  chambersOfCommerceNumber: string
+  vatIdNumber: string
+}
+
 export const Layout: React.SFC<LayoutProps> = ({ children }): JSX.Element => (
   <StaticQuery
     query={graphql`
@@ -54,53 +179,13 @@ export const Layout: React.SFC<LayoutProps> = ({ children }): JSX.Element => (
         }
       }
     `}
-    render={({ site: { siteMetadata: { company }} }) => (
+    render={({ site: { siteMetadata: { company }} }: { site: { siteMetadata: { company: CompanyData }}}) => (
       <>
-        {/*<Header siteTitle={data.site.siteMetadata.title} /> */}
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 1020,
-            padding: `0px 20px 32px`,
-            paddingTop: 0,
-          }}
-        >
+        <Global styles={globalCss} />
+        <Wrapper>
           <main>{children}</main>
-        </div>
-        <div style={{
-          background: '#252A34',
-          color: 'white'
-        }}>
-          <footer
-            style={{
-              margin: `0 auto`,
-              padding: `2rem 20px 32px`,
-              maxWidth: 1020,
-            }}
-            >
-
-            <dl>
-              <dt>Address</dt>
-              <dd>
-                <address>
-                  Stationsplein 45 #D2.117 (City Whoop)<br />
-                  3013 AK, Rotterdam
-                </address>
-              </dd>
-
-              <dt>Chambers of Commerce</dt>
-              <dd>{company.chambersOfCommerceNumber}</dd>
-
-              <dt>VAT identification number</dt>
-              <dd>{company.vatIdNumber}</dd>
-            </dl>
-
-            <span>
-              XP Bytes operates in collaboration with Delft Solutions and Things Implied.
-              © 2002 - {new Date().getFullYear()}
-            </span>
-          </footer>
-        </div>
+        </Wrapper>
+        <Footer {...company} />
       </>
     )}
   />

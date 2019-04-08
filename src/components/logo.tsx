@@ -1,7 +1,6 @@
 import React, { CSSProperties } from "react"
 
 import colouredSvg from '../images/logo-vertical.svg'
-import lightSvg from  '../images/logo-vertical_light.svg'
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -14,16 +13,31 @@ import lightSvg from  '../images/logo-vertical_light.svg'
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
-const styles: CSSProperties = { background: 'transparent', margin: '0 -1rem', padding: '8rem 1rem 4rem' }
-const inverseStyles: CSSProperties = { background: '#252a34', margin: '0 -1rem', padding: '8rem 1rem 4rem' }
+import styled from "@emotion/styled"
 
-const imageStyle: CSSProperties = { maxWidth: 300, width: '100%', margin: '0 auto', display: 'block' }
-const lightCaptionStyle: CSSProperties = { color: 'white', textAlign: 'center', fontSize: '1.5rem', margin: '3rem 1rem' }
-const darkCaptionStyle: CSSProperties = { color: 'black', textAlign: 'center', fontSize: '1.5rem', margin: '3rem 1rem' }
+const Figure = styled('figure')`
+  background: transparent;
+  margin: 0 -1rem;
+  padding: 8rem 1rem 4rem;
+`
 
-export const Logo = ({ inverse }: { inverse?: boolean }): JSX.Element => (
-  <figure style={inverse ? inverseStyles : styles}>
-    <h1 aria-label="XP Bytes"><img src={inverse ? lightSvg : colouredSvg} style={imageStyle} alt="XP Bytes logo"/></h1>
-    <figcaption style={inverse ? lightCaptionStyle : darkCaptionStyle}>A dutch software agency specializing in software couture; that is, tailored code.</figcaption>
-  </figure>
+const Figcaption = styled('figcaption')`
+  color: black;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 3rem 1rem;
+`
+
+const Image = styled('img')`
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+`
+
+export const Logo = (): JSX.Element => (
+  <Figure>
+    <h1 aria-label="XP Bytes"><Image src={colouredSvg} alt="XP Bytes logo"/></h1>
+    <Figcaption>A dutch software agency specializing in software couture; that is, tailored code.</Figcaption>
+  </Figure>
 )

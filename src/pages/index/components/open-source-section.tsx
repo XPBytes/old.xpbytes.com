@@ -1,7 +1,6 @@
 import React from 'react'
-/* @  jsx jsx */
-// import { css, jsx } from '@emotion/core'
 import { StaticQuery, graphql } from 'gatsby';
+import styled from "@emotion/styled"
 
 interface OpenSourceSectionProps {
   noop?: never
@@ -19,88 +18,147 @@ interface RepositoryNode {
   url: string
 }
 
+const PinnedCard = styled('div')`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`
+
+const PinnedLink = styled('a')`
+  font-weight: 600;
+  font-size: 14px;
+`
+
+const PinnedDescription = styled('div')`
+  font-size: 14px;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+`
+
+const RegularDescription = styled('div')`
+  font-size: 14px;
+`
+
+const RepositoryIconSvg = styled('svg')`
+  margin-right: 0.5rem;
+`
+
+function RepositoryIcon() {
+  return (
+    <RepositoryIconSvg viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true">
+      <path fillRule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path>
+      <title>Repository</title>
+    </RepositoryIconSvg>
+  )
+}
+
 function PinnedRepository({ name, nameWithOwner, url, descriptionHTML, primaryLanguage }: RepositoryNode): JSX.Element {
   return (
-    <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <PinnedCard>
       <header>
-        <svg style={{ marginRight: 8 }} viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true">
-          <path fillRule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path>
-          <title>Repository</title>
-        </svg>
-        <a href={url} style={{ fontWeight: 600, fontSize: 14 }} rel="noopener noreferrer">
+        <RepositoryIcon />
+        <PinnedLink href={url} rel="noopener noreferrer">
           <span title={nameWithOwner}>{name}</span>
-        </a>
+        </PinnedLink>
       </header>
 
-      <div
-        style={{
-          fontSize: 14,
-          marginBottom: 16,
-          marginTop: 8
-        }}
-        dangerouslySetInnerHTML={{ __html: descriptionHTML }} />
+      <PinnedDescription dangerouslySetInnerHTML={{ __html: descriptionHTML }} />
 
       {primaryLanguage && (
         <LanguageIndicator name={primaryLanguage.name} color={primaryLanguage.color} />
       )}
-    </div>
+    </PinnedCard>
   )
 }
+
+const RepositoryLink = styled('a')`
+  margin-right: 0.75rem;
+`
+
 
 function RegularRepository({ name, nameWithOwner, url, descriptionHTML, primaryLanguage }: RepositoryNode): JSX.Element {
   return (
     <div>
       <header>
-        <a href={url} style={{ marginRight: 12 }} rel="noopener noreferrer">
-          <span className="repo js-pinnable-item" title={nameWithOwner}>{name}</span>
-        </a>
+        <RepositoryLink href={url} rel="noopener noreferrer">
+          <span title={nameWithOwner}>{name}</span>
+        </RepositoryLink>
 
         {primaryLanguage && (
           <LanguageIndicator name={primaryLanguage.name} color={primaryLanguage.color} />
         )}
       </header>
 
-      <div style={{
-          fontSize: 14
-        }} dangerouslySetInnerHTML={
-        { __html: descriptionHTML }
-      } />
+      <RegularDescription dangerouslySetInnerHTML={{ __html: descriptionHTML }} />
     </div>
   )
 }
 
+const LanguageIndicatorCircle = styled('span')`
+  border-radius: 50%;
+  display: inline-block;
+  height: 0.65rem;
+  position: relative;
+  top: 1px;
+  width: 0.65rem;
+  margin-right: 0.3rem;
+`
+
+const LanguageIndicatorWrapper = styled('span')`
+  color: #586069;
+  font-size: 12px;
+  margin-top: auto;
+`
+
 function LanguageIndicator({ name, color }: { name: string, color: string }): JSX.Element {
   return (
-    <span style={{ color: '#586069', fontSize: 14, marginTop: 'auto' }} title={`Primary language: ${name}`}>
-      <span
+    <LanguageIndicatorWrapper title={`Primary language: ${name}`}>
+      <LanguageIndicatorCircle
         style={{
-          borderRadius: '50%',
-          display: 'inline-block',
-          height: 12,
-          position: 'relative',
-          top: 1,
-          width: 12,
-          marginRight: 8,
-
           backgroundColor: color
-        }}></span>
+        }} />
       {name}
-    </span>
+    </LanguageIndicatorWrapper>
   )
 }
 
+const Section = styled('section')`
+  margin-bottom: 2rem
+`
 
+const List = styled('ol')`
+  list-style: none;
+  margin: -6px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+`
+
+const PinnedListItem = styled('li')`
+  border: 1px solid #e1e4e8;
+  padding: 1rem;
+  flex: 1 1 280px;
+  width: 319px;
+  borderRadius: 3px;
+  margin: 6px;
+  box-sizing: border-box;
+`
+
+const RegularListItem = styled('li')`
+  flex: 1 0 100%;
+  margin: 7px;
+`
+
+const Footer = styled('footer')`
+  margin-top: 2rem;
+  border-top: 1px dashed rgba(0, 0, 0, .17);
+  padding-top: 0.5rem;
+`
 export const OpenSourceSection: React.SFC<OpenSourceSectionProps> = (): JSX.Element => {
   return (
-    <section style={{ marginBottom: '2rem' }}>
+    <Section>
       <h2>Open Source Projects</h2>
-      <ul style={{
-        listStyle: 'none',
-        margin: -6,
-        padding: 0,
-        display: 'flex',
-        flexWrap: 'wrap'
-      }}>
+      <List>
         <StaticQuery
           query={graphql`
             query PinnedItemsQuery {
@@ -155,43 +213,29 @@ export const OpenSourceSection: React.SFC<OpenSourceSectionProps> = (): JSX.Elem
               <>
               {
                 pinnedRepositories.map((node: RepositoryNode, i: number) => (
-                  <li key={node.name}
-                    style={{
-                      border: '1px solid #e1e4e8',
-                      padding: 16,
-                      flex: '1 1 280px',
-                      width: 319,
-                      borderRadius: 3,
-                      margin: 6,
-                      boxSizing: 'border-box'
-                    }}>
+                  <PinnedListItem key={node.name}>
                     <PinnedRepository {...node} />
-                  </li>
+                  </PinnedListItem>
                 ))
               }
               {
-                otherRepositories.map((node: RepositoryNode) => (
-                  <li key={node.name} style={{
-                    flex: '1 0 100%',
-                    margin: 6
+                otherRepositories.map((node: RepositoryNode, i: number) => (
+                  <RegularListItem key={node.name} style={{
+                    marginTop: i === 0 ? '2rem' : 7
                   }}>
                     <RegularRepository {...node} />
-                  </li>
+                  </RegularListItem>
                 ))
               }
               </>
             )
           }}
         />
-      </ul>
-      <footer style={{
-          marginTop: '2rem',
-          borderTop: '1px dashed rgba(0, 0, 0, .17)',
-          paddingTop: '0.5rem'
-        }}>
+      </List>
+      <Footer>
         <p>See more on the company's GitHub profile: <a href="https://github.com/XPBytes/" rel="noopener noreferrer">XPBytes</a></p>
-      </footer>
-    </section>
+      </Footer>
+    </Section>
   )
 }
 
