@@ -32,7 +32,16 @@ module.exports = {
         path: `${__dirname}/src/case-studies`,
       },
     },
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-external-links'
+          }
+        ]
+      }
+    },
     // 'gatsby-mdx',
     {
       resolve: 'gatsby-source-graphql',
