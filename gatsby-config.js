@@ -10,7 +10,10 @@ module.exports = {
     author: '@SleeplessByte',
     company: {
       chambersOfCommerceNumber: '57500142',
-      vatIdNumber: 'NL206499644B01'
+      vatIdNumber: 'NL206499644B01',
+      address: 'Stationsplein 45 #D2.117 (City Whoop)',
+      postal: '3013 AK',
+      city: 'Rotterdam'
     }
   },
   plugins: [
@@ -22,6 +25,15 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'case-studies',
+        path: `${__dirname}/src/case-studies`,
+      },
+    },
+    'gatsby-transformer-remark',
+    // 'gatsby-mdx',
     {
       resolve: 'gatsby-source-graphql',
       options: {

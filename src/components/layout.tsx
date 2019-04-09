@@ -17,16 +17,15 @@ import styled from "@emotion/styled"
 const Wrapper = styled('div')`
   margin: 0 auto;
   max-width: 1020px;
-  padding 0px 20px 32px;
-  padding-top: 0;
-  min-height: calc(100vh - 355px);
+  padding: 0 20px 32px;
+  min-height: calc(100vh - 366px);
 `
 
 const globalCss = css`
   body {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.6;
     color: #24292e;
 
     font-feature-settings: "kern", "liga", "clig", "calt";
@@ -163,6 +162,9 @@ queries: [
 interface CompanyData {
   chambersOfCommerceNumber: string
   vatIdNumber: string
+  address: string
+  postal: string
+  city: string
 }
 
 export const Layout: React.SFC<LayoutProps> = ({ children }): JSX.Element => (
@@ -174,12 +176,15 @@ export const Layout: React.SFC<LayoutProps> = ({ children }): JSX.Element => (
             company {
               chambersOfCommerceNumber
               vatIdNumber
+              address
+              postal
+              city
             }
           }
         }
       }
     `}
-    render={({ site: { siteMetadata: { company }} }: { site: { siteMetadata: { company: CompanyData }}}) => (
+    render={({ site: { siteMetadata: { company }} }: { site: { siteMetadata: { company: CompanyData }}}): JSX.Element => (
       <>
         <Global styles={globalCss} />
         <Wrapper>

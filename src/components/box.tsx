@@ -14,6 +14,10 @@ export const BoxHeader = styled('header')`
   margin: -1px -1px 0;
   padding: 16px;
 `
+
+export const BoxHeaderHeading = styled('h2')`
+  margin-bottom: 0;
+`
 export const BoxBody = styled('div')`
   border-bottom: 1px solid #e1e4e8;
   box-sizing: border-box;

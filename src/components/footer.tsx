@@ -15,18 +15,21 @@ const Inner = styled('footer')`
 export interface FooterProps {
   chambersOfCommerceNumber: string
   vatIdNumber: string
+  address: string
+  postal: string
+  city: string
 }
 
-export function Footer({ chambersOfCommerceNumber, vatIdNumber }: FooterProps) {
+export function Footer({ chambersOfCommerceNumber, vatIdNumber, address, postal, city }: FooterProps): JSX.Element {
   return (
     <Wrapper>
-      <Inner>
+      <Inner role="contentinfo">
         <dl>
           <dt>Address</dt>
           <dd>
             <address>
-              Stationsplein 45 #D2.117 (City Whoop)<br />
-              3013 AK, Rotterdam
+              {address}<br />
+              {postal}, {city}
             </address>
           </dd>
 

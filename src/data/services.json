@@ -1,0 +1,32 @@
+{
+  "aws": {
+    "name": "Amazon Web Services",
+    "provides": "Hosting infrastructure",
+    "url": "https://aws.amazon.com"
+  },
+  "expo": {
+    "name": "Expo",
+    "provides": "Over-the-air updates for React Native apps",
+    "url": "https://expo.io/"
+  },
+  "fcm": {
+    "name": "Firebase Cloud Messaging",
+    "provides": "Cross-platform messaging solution",
+    "url": "https://firebase.google.com/docs/cloud-messaging/"
+  },
+  "influxcloud": {
+    "name": "InfluxCloud",
+    "provides": "InfluxDB hosting",
+    "url": "https://cloud.influxdata.com/"
+  },
+  "papertrail": {
+    "name": "Papertrail",
+    "provides": "Log management",
+    "url": "https://papertrailapp.com"
+  },
+  "sentry": {
+    "name": "Sentry",
+    "provides": "Error tracking",
+    "url": "https://sentry.io"
+  }
+}

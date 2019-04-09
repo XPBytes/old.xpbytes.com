@@ -1,11 +1,11 @@
 import React from "react"
 
-import { Layout } from "../../components/layout"
-import { SEO } from "../../components/seo"
-import { Hero } from "../../components/hero"
-import { Excerpt } from './components/excerpt'
-import { OpenSourceSection } from './components/open-source-section'
-import { CaseStudiesSection } from "./components/case-studies-section";
+import { Layout } from "../components/layout"
+import { SEO } from "../components/seo"
+import { Hero } from "../components/hero"
+import { Excerpt } from '../components/index/excerpt'
+import { OpenSourceSection } from '../components/index/open-source-section'
+import { CaseStudiesSection } from "../components/index/case-studies-section";
 
 const IndexPage = (): JSX.Element => (
   <Layout>

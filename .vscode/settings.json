@@ -1,0 +1,4 @@
+{
+  "typescript.suggest.completeFunctionCalls": true,
+  "typescript.referencesCodeLens.enabled": true
+}

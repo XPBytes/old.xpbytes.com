@@ -4,7 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require('path')
 
 exports.onCreatePage = ({ page, actions }) => {
   const { deletePage, createPage } = actions
@@ -21,5 +22,40 @@ exports.onCreatePage = ({ page, actions }) => {
     }
 
     resolve()
+  })
+}
+
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
+
+  const blogPostTemplate = path.resolve(`src/templates/case-studies.tsx`)
+
+  return graphql(`
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors)
+    }
+
+    result.data.allMarkdownRemark.edges.forEach(({ node: { frontmatter: { path: nodePath }} }) => {
+      createPage({
+        path: nodePath,
+        component: blogPostTemplate,
+        context: { }, // additional data can be passed via context
+      })
+    })
   })
 }
