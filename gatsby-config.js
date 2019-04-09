@@ -71,6 +71,8 @@ module.exports = {
     },
 
     'gatsby-plugin-typescript',
+    'gatsby-plugin-force-trailing-slashes',
+
     {
       resolve: 'gatsby-plugin-fathom',
       options: {
