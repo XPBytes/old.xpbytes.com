@@ -8,7 +8,7 @@ import { Hero } from '../components/hero'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-const Article = styled('article')`
+const Poem = styled('article')`
   max-width: 540px;
   border-left: 3px dotted;
   padding-left: 2rem;
@@ -66,7 +66,7 @@ const NotFoundPage = (): JSX.Element => (
       </p>
     </MainHeader>
 
-    <Article>
+    <Poem>
       <Header>
         <Heading>Bits. And pieces.</Heading>
         <Meta>By <a href="https://derk-jan.com" rel="author">Derk-Jan Karrenbeld</a>, published on <time dateTime="2015-04-09">{new Date("2015-04-09").toLocaleDateString(undefined, { month: 'long', year: 'numeric', day: 'numeric' })}</time></Meta>
@@ -106,7 +106,7 @@ const NotFoundPage = (): JSX.Element => (
       <p>
         My mind wanders and I am lost.
       </p>
-    </Article>
+    </Poem>
   </Layout>
 )
 
