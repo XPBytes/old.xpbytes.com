@@ -4,12 +4,16 @@ import styled from "@emotion/styled"
 const Wrapper = styled('div')`
   background: #252A34;
   color: white;
+  width: 100%;
+  box-sizing: border-box;
 `
 
 const Inner = styled('footer')`
   margin: 0 auto;
   padding: 2rem 20px 32px;
   max-width: 1020px;
+  width: 100%;
+  box-sizing: border-box;
 `
 
 export interface FooterProps {
