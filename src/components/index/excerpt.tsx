@@ -68,11 +68,11 @@ const YouDetails = (): JSX.Element => (
         results.
       </p>
       <LinkList>
-        <li><Link to="/case-studies/trailervote">A startup</Link></li>
-        <li><Link to="/case-studies/blackgate">A company side-project</Link></li>
-        <li><Link to="/case-studies/saxomania">An individual</Link></li>
-        <li><Link to="/case-studies/unicef">A non-profit organisation</Link></li>
-        <li><Link to="/case-studies/intreeweek">A university</Link></li>
+        <li><Link to="/case-studies/trailervote/">A startup</Link></li>
+        <li><Link to="/case-studies/blackgate/">A company side-project</Link></li>
+        <li><Link to="/case-studies/saxomania/">An individual</Link></li>
+        <li><Link to="/case-studies/unicef/">A non-profit organisation</Link></li>
+        <li><Link to="/case-studies/intreeweek/">A university</Link></li>
       </LinkList>
     </BoxBody>
     <BoxFooter>
@@ -99,11 +99,11 @@ const YourSoftwareDetails = (): JSX.Element => (
         what that may be.
       </p>
       <LinkList>
-        <li><Link to="/case-studies/trailervote">An SDK to recognise Trailers</Link></li>
-        <li><Link to="/case-studies/blackgate">A CMS to control VOIP</Link></li>
-        <li><Link to="/case-studies/saxomania">A game with a musical instrument controller</Link></li>
-        <li><Link to="/case-studies/unicef">A live tournament with ranking &amp; voting</Link></li>
-        <li><Link to="/case-studies/intreeweek">A university introduction compagnion</Link></li>
+        <li><Link to="/case-studies/trailervote/">An SDK to recognise Trailers</Link></li>
+        <li><Link to="/case-studies/blackgate/">A CMS to control VOIP</Link></li>
+        <li><Link to="/case-studies/saxomania/">A game with a musical instrument controller</Link></li>
+        <li><Link to="/case-studies/unicef/">A live tournament with ranking &amp; voting</Link></li>
+        <li><Link to="/case-studies/intreeweek/">A university introduction compagnion</Link></li>
       </LinkList>
     </BoxBody>
     <BoxFooter>
@@ -131,11 +131,11 @@ const YourCurrentStatusDetails = (): JSX.Element => (
         production and used daily.
       </p>
       <LinkList>
-        <li><Link to="/case-studies/trailervote">A project from tech demo to production</Link></li>
-        <li><Link to="/case-studies/blackgate">A legacy system in need of a greenfield layer</Link></li>
-        <li><Link to="/case-studies/saxomania">A project from tech demo to MVP</Link></li>
-        <li><Link to="/case-studies/unicef">A production application in need of scaling</Link></li>
-        <li><Link to="/case-studies/intreeweek">A greenfield application</Link></li>
+        <li><Link to="/case-studies/trailervote/">A project from tech demo to production</Link></li>
+        <li><Link to="/case-studies/blackgate/">A legacy system in need of a greenfield layer</Link></li>
+        <li><Link to="/case-studies/saxomania/">A project from tech demo to MVP</Link></li>
+        <li><Link to="/case-studies/unicef/">A production application in need of scaling</Link></li>
+        <li><Link to="/case-studies/intreeweek/">A greenfield application</Link></li>
       </LinkList>
     </BoxBody>
     <BoxFooter>
