@@ -62,6 +62,13 @@ module.exports = {
     },
 
     'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-fathom',
+      options: {
+        trackingUrl: 'xpbytes.usesfathom.com',
+        siteId: process.env.FATHOM_SITE_ID
+      }
+    },
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
