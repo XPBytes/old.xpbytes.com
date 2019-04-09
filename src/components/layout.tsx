@@ -19,6 +19,9 @@ const Wrapper = styled('div')`
   max-width: 1020px;
   padding: 0 20px 32px;
   min-height: calc(100vh - 366px);
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 `
 
 const globalCss = css`
