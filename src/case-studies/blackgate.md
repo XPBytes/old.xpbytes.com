@@ -8,6 +8,7 @@ logo: "../images/blackgate.svg"
 technologies: ["rails", "bootstrap"]
 services: []
 languages: ["Ruby", "HTML", "CSS"]
+components: ["Customer CMS"]
 ---
 
 Coming soon...

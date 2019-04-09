@@ -8,6 +8,7 @@ logo: "../images/trailervote.svg"
 technologies: ["rails", "react", "d3", "influxdb"]
 services: ["aws", "influxcloud", "papertrail", "sentry"]
 languages: ["Ruby", "TypeScript", "HTML", "CSS", "JavaScript", "Shell", "PHP"]
+components: ["Administrative CMS", "Analytics frontend", "API", "Background worker", "Content Digest storage"]
 ---
 
 [TrailerVote][0] is the exhibition industry's hottest growth tool. It provides

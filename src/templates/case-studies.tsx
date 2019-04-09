@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import { graphql, Link } from "gatsby"
 import { Layout } from "../components/layout"
 import SEO from "../components/seo"
@@ -28,6 +28,7 @@ interface TemplateProps {
         languages: string[]
         services: string[]
         technologies: string[]
+        components: string[]
       }
       html: string
     }
@@ -69,6 +70,14 @@ const Aside = styled('aside')`
 const AsideHeading = styled('h2')`
   font-size: 1.25rem;
   margin-bottom: .675rem;
+`
+
+const AsideCaption = styled('caption')`
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 `
 
 /*
@@ -162,6 +171,7 @@ function Languages({ languages }: { languages: string[] }): JSX.Element | null {
   return (
     <>
       <AsideHeading>Languages</AsideHeading>
+      <AsideCaption>We've used these programming languages.</AsideCaption>
       <LanguageList>
         {languages.map((lang): JSX.Element => (<li key={lang}><LanguageIndicator name={lang} /></li>))}
       </LanguageList>
@@ -177,6 +187,7 @@ function Technologies({ technologies }: { technologies: string[] }): JSX.Element
   return (
     <>
       <AsideHeading>Technologies</AsideHeading>
+      <AsideCaption>We've used these tools and technologies.</AsideCaption>
       <TechnologyList>
         {technologies.map((technology): JSX.Element => (<li key={technology}>{technology}</li>))}
       </TechnologyList>
@@ -192,9 +203,26 @@ function Services({ services }: { services: string[] }): JSX.Element | null {
   return (
     <>
       <AsideHeading>Services</AsideHeading>
+      <AsideCaption>We've used these used these services.</AsideCaption>
       <ServiceList>
         {services.map((service): JSX.Element => (<ServiceIndicator service={service} key={service} />))}
       </ServiceList>
+    </>
+  )
+}
+
+function Components({ components }: { components: string[] }): JSX.Element | null {
+  if (!components || components.length === 0) {
+    return null
+  }
+
+  return (
+    <>
+      <AsideHeading>Components</AsideHeading>
+      <AsideCaption>We've built and delivered these components.</AsideCaption>
+      <TechnologyList>
+        {components.map((component): JSX.Element => (<li key={component}>{component}</li>))}
+      </TechnologyList>
     </>
   )
 }
@@ -204,7 +232,7 @@ export default function Template({
 }: TemplateProps): JSX.Element {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter: { title, keywords, description, isoDate, logo, ...aside }, html } = markdownRemark
-  const { languages, services, technologies } = aside
+  const { languages, services, technologies, components } = aside
   return (
     <Layout>
       <SEO
@@ -232,6 +260,7 @@ export default function Template({
 
         <Aside>
           <Languages languages={languages} />
+          <Components components={components} />
           <Technologies technologies={technologies} />
           <Services services={services} />
         </Aside>
@@ -262,6 +291,7 @@ export const pageQuery = graphql`
         technologies
         services
         languages
+        components
       }
       timeToRead
     }

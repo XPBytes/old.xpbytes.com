@@ -8,6 +8,7 @@ logo: "../images/intree.png"
 technologies: ["React Native", "Expo", "WordPress"]
 services: ["fcm", "expo"]
 languages: ["JavaScript", "HTML", "CSS", "PHP", "Java", "Swift"]
+components: ["API", "Customer CMS", "Mobile Android Application", "Mobile iOS Application", "Progressive Web App", "Wordpress Plugin"]
 ---
 
 Coming soon...

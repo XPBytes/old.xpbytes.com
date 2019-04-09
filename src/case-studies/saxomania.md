@@ -8,6 +8,7 @@ logo: "../images/saxomania.png"
 technologies: ["XNA"]
 services: []
 languages: ["C#", "C++"]
+components: ["Debugging Tool", "Tech Demo as Computer Game"]
 ---
 
 Coming soon...

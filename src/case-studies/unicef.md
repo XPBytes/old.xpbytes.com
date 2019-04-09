@@ -8,6 +8,7 @@ logo: "../images/unicef.png"
 technologies: ["WordPress"]
 services: []
 languages: ["PHP", "HTML", "CSS", "JavaScript"]
+components: ["Frontend", "WordPress Plugin", "WordPress Theme"]
 ---
 
 Coming soon...
