@@ -14,6 +14,11 @@ const Inner = styled('footer')`
   max-width: 1020px;
   width: 100%;
   box-sizing: border-box;
+  border-top: 2px solid transparent;
+
+  body.dark & {
+    border-top-color: white;
+  }
 `
 
 export interface FooterProps {

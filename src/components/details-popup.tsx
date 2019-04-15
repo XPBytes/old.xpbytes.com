@@ -12,6 +12,10 @@ const DetailsCSS = css`
     outline-style: solid;
     outline-width: 1px;
     outline-offset: 1px;
+
+    body.dark & {
+      outline-color: #8158f5;
+    }
   }
 
   & > details-dialog:focus {
@@ -52,6 +56,10 @@ const DetailsCSS = css`
     left: 0;
     bottom: 0;
     z-index: 1;
+
+    body.dark & {
+      background: rgba(0, 0, 0, 0.5);
+    }
   }
 
   & > details-dialog {

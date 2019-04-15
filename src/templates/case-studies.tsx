@@ -122,9 +122,13 @@ const LanguageIndicatorWrapper = styled('span')`
   color: #586069;
   font-size: .75rem;
   margin-top: auto;
+
+  body.dark & {
+    color: white;
+  }
 `
 
-function LanguageIndicator({ name, color = languages[name].color }: { name: string, color?: string }): JSX.Element {
+function LanguageIndicator({ name, color = ((languages as any)[name] || { color: 'black' }).color }: { name: string, color?: string }): JSX.Element {
   return (
     <LanguageIndicatorWrapper title={`Programming language: ${name}`}>
       <LanguageIndicatorCircle
@@ -136,7 +140,12 @@ function LanguageIndicator({ name, color = languages[name].color }: { name: stri
   )
 }
 
-function ServiceIndicator({ service, name = services[service].name, href = services[service].url, provides = services[service].provides }: { service: string, name?: string, href?: string, provides?: string }): JSX.Element {
+function ServiceIndicator({
+  service,
+  name = ((services as any)[service] || {}).name,
+  href = ((services as any)[service] || {}).url,
+  provides = ((services as any)[service] || {}).provides
+}: { service: string, name?: string, href?: string, provides?: string }): JSX.Element {
   return (
     <>
       <dt>

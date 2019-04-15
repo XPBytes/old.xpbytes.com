@@ -29,31 +29,67 @@ const globalCss = css`
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
     font-size: 16px;
     line-height: 1.6;
-    color: #24292e;
 
     font-feature-settings: "kern", "liga", "clig", "calt";
 
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &.light, &.dark {
+      transition: background-color 0.1s ease, color 0.1s ease;
+    }
   }
 
   a {
     background-color: transparent;
-    color: #8158f5; /* #835AF6; */
     -webkit-text-decoration-skip: objects;
 
     &:active,
     &:hover {
       outline-width: 0;
-      color: #835AF6;
     }
 
     &:focus {
-      outline-color: #835AF6;
       outline-style: solid;
       outline-width: 1px;
       outline-offset: 1px;
+    }
+  }
+
+  body:not(.dark), body.light {
+    color: #24292e;
+    background-color: white;
+
+    a {
+      color: #8158f5; /* #835AF6; */
+
+      &:active,
+      &:hover {
+        color: #835AF6;
+      }
+
+      &:focus {
+        outline-color: #835AF6;
+      }
+    }
+  }
+
+  body.dark {
+    color: white;
+    background-color: #252A34;
+
+    a {
+      color: #FE3E80; /* #835AF6; */
+
+      &:active,
+      &:hover {
+        color: #fe6573;
+      }
+
+      &:focus {
+        outline-color: #FE3E80;
+      }
     }
   }
 
@@ -171,32 +207,32 @@ interface CompanyData {
 }
 
 export const Layout: React.SFC<LayoutProps> = ({ children }): JSX.Element => (
-  <StaticQuery
-    query={graphql`
-      query CompanyDataQuery {
-        site {
-          siteMetadata {
-            company {
-              chambersOfCommerceNumber
-              vatIdNumber
-              address
-              postal
-              city
+  <>
+    <Global styles={globalCss} />
+    <Wrapper>
+      <main>{children}</main>
+    </Wrapper>
+    <StaticQuery
+      query={graphql`
+        query CompanyDataQuery {
+          site {
+            siteMetadata {
+              company {
+                chambersOfCommerceNumber
+                vatIdNumber
+                address
+                postal
+                city
+              }
             }
           }
         }
-      }
-    `}
-    render={({ site: { siteMetadata: { company }} }: { site: { siteMetadata: { company: CompanyData }}}): JSX.Element => (
-      <>
-        <Global styles={globalCss} />
-        <Wrapper>
-          <main>{children}</main>
-        </Wrapper>
+      `}
+      render={({ site: { siteMetadata: { company }} }: { site: { siteMetadata: { company: CompanyData }}}): JSX.Element => (
         <Footer {...company} />
-      </>
-    )}
-  />
+      )}
+    />
+  </>
 )
 
 Layout.propTypes = {

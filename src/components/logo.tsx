@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react"
-
 import colouredSvg from '../images/logo-vertical.svg'
+import lightSvg from '../images/logo-vertical_light.svg'
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -22,7 +22,6 @@ const Figure = styled('figure')`
 `
 
 const Figcaption = styled('figcaption')`
-  color: black;
   text-align: center;
   font-size: 1.5rem;
   margin: 3rem 1rem;
@@ -35,9 +34,9 @@ const Image = styled('img')`
   display: block;
 `
 
-export const Logo = (): JSX.Element => (
+export const Logo = ({ theme }: { theme: 'light' | 'dark' }): JSX.Element => (
   <Figure>
-    <h1 aria-label="XP Bytes"><Image src={colouredSvg} alt="XP Bytes logo"/></h1>
+    <h1 aria-label="XP Bytes"><Image key={theme} src={theme === 'dark' ? lightSvg : colouredSvg} alt="XP Bytes logo"/></h1>
     <Figcaption>A dutch software agency specializing in software couture; that is, tailored code.</Figcaption>
   </Figure>
 )

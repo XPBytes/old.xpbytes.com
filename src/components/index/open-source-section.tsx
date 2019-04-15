@@ -41,6 +41,10 @@ const RegularDescription = styled('div')`
 
 const RepositoryIconSvg = styled('svg')`
   margin-right: 0.5rem;
+
+  body.dark & {
+    fill: white;
+  }
 `
 
 function RepositoryIcon(): JSX.Element {
@@ -108,6 +112,10 @@ const LanguageIndicatorWrapper = styled('span')`
   color: #586069;
   font-size: 12px;
   margin-top: auto;
+
+  body.dark & {
+    color: white;
+  }
 `
 
 function LanguageIndicator({ name, color }: { name: string, color: string }): JSX.Element {
@@ -142,6 +150,10 @@ const PinnedListItem = styled('li')`
   border-radius: 3px;
   margin: 6px;
   box-sizing: border-box;
+
+  body.dark & {
+    border-color: #586069;
+  }
 `
 
 const RegularListItem = styled('li')`

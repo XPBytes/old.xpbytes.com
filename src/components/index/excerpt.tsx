@@ -13,6 +13,10 @@ const Abbr = styled('abbr')`
   border-bottom: 1px dotted #FE3E80;
   cursor: help;
   text-decoration: none;
+
+  body.dark & {
+    border-bottom-color: #8158f5;
+  }
 `
 
 interface MakeAbbrSummaryProps { title: string, text: string }
