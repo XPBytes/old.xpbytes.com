@@ -33,6 +33,22 @@ export function Footer({ chambersOfCommerceNumber, vatIdNumber, address, postal,
   return (
     <Wrapper>
       <Inner role="contentinfo">
+        <script type="application/ld+json">
+          {`{
+            "@context" : "http://schema.org",
+            "@type" : "LocalBusiness",
+            "name" : "XP Bytes",
+            "image" : "http://xpbytes.com/images/logo.png",
+            "address" : {
+              "@type" : "PostalAddress",
+              "streetAddress" : "${address}",
+              "addressLocality" : "${city}",
+              "postalCode" : "${postal}"
+            },
+            "url": "https://xpbytes.com",
+            "logo": "http://xpbytes.com/images/icon.png"
+          }`}
+        </script>
         <dl>
           <dt>Address</dt>
           <dd>

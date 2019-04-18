@@ -33,7 +33,9 @@ const IndexPage = (): JSX.Element => {
       <SEO
         title="eXPerienced Bytes"
         description="Dutch software agency specializing in custom, tailored, software."
-        keywords={['custom software', 'maatwerk software', 'software', 'typescript', 'react', 'rails', 'ruby', 'c#', 'dotnet', '.NET', 'UX', 'AWS']} />
+        keywords={['custom software', 'maatwerk software', 'software', 'typescript', 'react', 'rails', 'ruby', 'c#', 'dotnet', '.NET', 'UX', 'AWS']}>
+
+      </SEO>
 
       <Hero theme={theme}/>
 

@@ -28,12 +28,12 @@ exports.onCreatePage = ({ page, actions }) => {
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve(`src/templates/case-studies.tsx`)
+  const caseStudiesTemplate = path.resolve(`src/templates/case-studies.tsx`)
 
   return graphql(`
     {
       allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
+        sort: { order: DESC, fields: [frontmatter___published_date] }
         limit: 1000
       ) {
         edges {
@@ -53,7 +53,7 @@ exports.createPages = ({ actions, graphql }) => {
     result.data.allMarkdownRemark.edges.forEach(({ node: { frontmatter: { path: nodePath }} }) => {
       createPage({
         path: nodePath,
-        component: blogPostTemplate,
+        component: caseStudiesTemplate,
         context: { }, // additional data can be passed via context
       })
     })

@@ -18,9 +18,11 @@ interface SEOProps {
   keywords?: (string | null)[]
   lang?: string
   meta?: (object | null)[]
+
+  children?: React.ReactNode
 }
 
-export const SEO: React.SFC<SEOProps> = ({ description, lang, meta, keywords, title }: NonNullable<SEOProps>): JSX.Element => {
+export const SEO: React.SFC<SEOProps> = ({ description, lang, meta, keywords, title, children }: NonNullable<SEOProps>): JSX.Element => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -88,7 +90,9 @@ export const SEO: React.SFC<SEOProps> = ({ description, lang, meta, keywords, ti
         )
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .concat(meta as any)}
-    />
+    >
+    {children}
+    </Helmet>
   )
 }
 

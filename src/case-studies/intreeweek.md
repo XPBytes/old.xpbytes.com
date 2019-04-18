@@ -1,6 +1,7 @@
 ---
 path: "/case-studies/intreeweek/"
-date: "2019-04-09"
+published_date: "2019-04-08"
+modified_date: "2019-04-09"
 title: "Intreeweek"
 description: ""
 keywords: []

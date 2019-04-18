@@ -1,20 +1,27 @@
-import React, { Component } from "react"
-import { graphql, Link } from "gatsby"
-import { Layout } from "../components/layout"
-import SEO from "../components/seo"
-
+import React from "react"
+import { graphql, withPrefix } from "gatsby"
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-import languages from '../data/languages.json'
-import services from '../data/services.json'
+import { Layout } from "../components/layout"
+import { SEO } from "../components/seo"
+import { BackToHome } from '../components/back-to-home'
+
+import { Components } from '../components/case-studies/components'
+import { Languages } from '../components/case-studies/languages'
+import { Services } from '../components/case-studies/services'
+import { Technologies } from '../components/case-studies/technologies'
+
+const STATIC_LOGO = withPrefix('/images/logo.png')
 
 interface TemplateProps {
   data: {
     markdownRemark: {
       frontmatter: {
+        path: string
         title: string
-        isoDate: string
+        modifiedIsoDate: string
+        publishedIsoDate: string
         keywords: string[]
         description: string
         logo?: {
@@ -49,33 +56,19 @@ const Header = styled('header')`
 
 const Heading = styled('h1')`
   margin-bottom: .2rem;
+  font-size: 2rem;
 `
 
 const Meta = styled('small')`
 `
-
 const Content = styled('div')`
   max-width: 700px;
   margin: 1rem;
   width: 100%;
 `
-
 const Aside = styled('aside')`
   flex: 1 1 200px;
   margin: 1rem;
-`
-
-const AsideHeading = styled('h2')`
-  font-size: 1.25rem;
-  margin-bottom: .675rem;
-`
-
-const AsideCaption = styled('label')`
-  position: absolute !important;
-  height: 1px; width: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
 `
 
 /*
@@ -84,183 +77,83 @@ const AsideCaption = styled('label')`
 </header>
 */
 
-const ServiceList = styled('dl')`
-  margin: 0 0 1.45rem;
-  padding: 0;
-  font-size: .9rem;
-
-  & > dd {
-    margin-bottom: .5rem;
-  }
+const Description = styled('blockquote')`
+  border-left: 2px dashed #8158f5;
+  margin: 1rem;
+  padding-left: 1rem;
 `
-
-const TechnologyList = styled('ul')`
-  list-style: inside circle;
-  margin: 0 0 1.45rem;
-  padding: 0;
-  font-size: .9rem;
-`
-
-const LanguageList = styled('ol')`
-  list-style: none;
-  margin: 0 0 1.45rem;
-`
-
-const LanguageIndicatorCircle = styled('span')`
-  border-radius: 50%;
-  display: inline-block;
-  height: 0.5rem;
-  position: relative;
-  top: 0px;
-  width: 0.5rem;
-  margin-right: 0.75rem;
-`
-
-const LanguageIndicatorWrapper = styled('span')`
-  color: #586069;
-  font-size: .75rem;
-  margin-top: auto;
-
-  body.dark & {
-    color: white;
-  }
-`
-
-function LanguageIndicator({ name, color = ((languages as any)[name] || { color: 'black' }).color }: { name: string, color?: string }): JSX.Element {
-  return (
-    <LanguageIndicatorWrapper title={`Programming language: ${name}`}>
-      <LanguageIndicatorCircle
-        style={{
-          backgroundColor: color
-        }} />
-      {name}
-    </LanguageIndicatorWrapper>
-  )
-}
-
-function ServiceIndicator({
-  service,
-  name = ((services as any)[service] || {}).name,
-  href = ((services as any)[service] || {}).url,
-  provides = ((services as any)[service] || {}).provides
-}: { service: string, name?: string, href?: string, provides?: string }): JSX.Element {
-  return (
-    <>
-      <dt>
-        <a rel="noopener noreferer" href={href}>
-          {name}
-        </a>
-      </dt>
-      <dd>{provides}</dd>
-    </>
-  )
-}
-
-const BackLinkCss = css`
-  display: block;
-  line-height: 24px;
-  text-decoration: none;
-  margin-top: 2rem;
-`
-
-const BackLinkIcon = styled('svg')`
-  vertical-align: bottom;
-  margin-right: 4px;
-
-  fill: currentColor;
-`
-
-function Languages({ languages }: { languages: string[] }): JSX.Element | null {
-  if (!languages || languages.length === 0) {
-    return null
-  }
-
-  return (
-    <>
-      <AsideHeading>Languages</AsideHeading>
-      <AsideCaption>We've used these programming languages.</AsideCaption>
-      <LanguageList>
-        {languages.map((lang): JSX.Element => (<li key={lang}><LanguageIndicator name={lang} /></li>))}
-      </LanguageList>
-    </>
-  )
-}
-
-function Technologies({ technologies }: { technologies: string[] }): JSX.Element | null {
-  if (!technologies || technologies.length === 0) {
-    return null
-  }
-
-  return (
-    <>
-      <AsideHeading>Technologies</AsideHeading>
-      <AsideCaption>We've used these tools and technologies.</AsideCaption>
-      <TechnologyList>
-        {technologies.map((technology): JSX.Element => (<li key={technology}>{technology}</li>))}
-      </TechnologyList>
-    </>
-  )
-}
-
-function Services({ services }: { services: string[] }): JSX.Element | null {
-  if (!services || services.length === 0) {
-    return null
-  }
-
-  return (
-    <>
-      <AsideHeading>Services</AsideHeading>
-      <AsideCaption>We've used these used these services.</AsideCaption>
-      <ServiceList>
-        {services.map((service): JSX.Element => (<ServiceIndicator service={service} key={service} />))}
-      </ServiceList>
-    </>
-  )
-}
-
-function Components({ components }: { components: string[] }): JSX.Element | null {
-  if (!components || components.length === 0) {
-    return null
-  }
-
-  return (
-    <>
-      <AsideHeading>Components</AsideHeading>
-      <AsideCaption>We've built and delivered these components.</AsideCaption>
-      <TechnologyList>
-        {components.map((component): JSX.Element => (<li key={component}>{component}</li>))}
-      </TechnologyList>
-    </>
-  )
-}
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }: TemplateProps): JSX.Element {
   const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter: { title, keywords, description, isoDate, ...aside }, html } = markdownRemark
+  const { frontmatter: { title, keywords, description, modifiedIsoDate, publishedIsoDate, path, ...aside }, html } = markdownRemark
   const { languages, services, technologies, components } = aside
   return (
     <Layout>
       <SEO
         title={`Case Study: ${title}`}
         description={description}
-        keywords={keywords} />
+        keywords={keywords}>
+        <script type="application/ld+json">
+          {`{
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://xpbytes.com/case-studies/${path.split('/').slice(-1)[0]}"
+            },
+            "headline": "Case Study: ${title}",
+            "datePublished": "${publishedIsoDate}",
+            "dateModified": "${modifiedIsoDate}",
+            "author": {
+              "@type": "Person",
+              "name": "Derk-Jan Karrenbeld"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "XP Bytes",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://xpbytes.com/${STATIC_LOGO}"
+              }
+            },
+            "description": "${description}"
+          }`}
+        </script>
+        <script type="application/ld+json">
+          {`{
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Case Studies",
+                "item": "https://xpbytes.com/case-studies"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "${title}",
+                "item": "https://xpbytes.com${path}"
+              }
+            ]
+          }`}
+        </script>
+      </SEO>
 
-      <Link to="/" aria-label="Back to home" css={BackLinkCss}>
-        <BackLinkIcon xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-          <path d="M0 0h24v24H0z" fill="none"/>
-          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-        </BackLinkIcon>
-
-        Back to home
-      </Link>
+      <BackToHome />
 
       <Article>
         <Header>
           <Heading>Case Study: {title}</Heading>
-          <Meta>Last update: <time dateTime={isoDate}>{new Date(isoDate).toLocaleDateString(undefined, { month: 'long', year: 'numeric', day: 'numeric' })}</time></Meta>
+          <Meta>Last update: <time dateTime={modifiedIsoDate}>{
+            new Date(modifiedIsoDate).toLocaleDateString(undefined, { month: 'long', year: 'numeric', day: 'numeric' })
+          }</time></Meta>
         </Header>
+
+        <Description>{description}</Description>
+
         <Content
           dangerouslySetInnerHTML={{ __html: html }}
         />
@@ -282,7 +175,8 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
-        isoDate: date(formatString: "YYYY-MM-DD")
+        modifiedIsoDate: modified_date(formatString: "YYYY-MM-DD")
+        publishedIsoDate: published_date(formatString: "YYYY-MM-DD")
         path
         title
         description

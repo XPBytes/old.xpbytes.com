@@ -1,6 +1,7 @@
 ---
 path: "/case-studies/trailervote/"
-date: "2019-04-09"
+published_date: "2019-04-08"
+modified_date: "2019-04-11"
 title: "TrailerVote"
 description: "XP Bytes helped TrailerVote go from Tech Demo to working product, built for over 1 million users a minute, using Ruby on Rails, NodeJS and InfluxDB."
 keywords: ["ruby", "ruby on rails", "rails", "native", "sentry", "media types", "analytics", "time series database", "influxdb", "nodejs", "typescript", "react"]

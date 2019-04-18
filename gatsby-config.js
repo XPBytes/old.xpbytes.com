@@ -75,7 +75,7 @@ module.exports = {
         background_color: '#F8F7FB',
         theme_color: '#252A34',
         display: 'minimal-ui',
-        icon: 'src/images/logo-colour_with_large_margin.png', // This path is relative to the root of the site.
+        icon: 'static/icon.png', // This path is relative to the root of the site.
       },
     },
 
