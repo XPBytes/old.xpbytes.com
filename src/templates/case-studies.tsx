@@ -5,8 +5,6 @@ import SEO from "../components/seo"
 
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { Logo } from "../components/logo";
-import { Collaboration } from "../components/collaboration";
 
 import languages from '../data/languages.json'
 import services from '../data/services.json'
@@ -72,7 +70,7 @@ const AsideHeading = styled('h2')`
   margin-bottom: .675rem;
 `
 
-const AsideCaption = styled('caption')`
+const AsideCaption = styled('label')`
   position: absolute !important;
   height: 1px; width: 1px;
   overflow: hidden;
@@ -240,7 +238,7 @@ export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }: TemplateProps): JSX.Element {
   const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter: { title, keywords, description, isoDate, logo, ...aside }, html } = markdownRemark
+  const { frontmatter: { title, keywords, description, isoDate, ...aside }, html } = markdownRemark
   const { languages, services, technologies, components } = aside
   return (
     <Layout>
@@ -289,14 +287,6 @@ export const pageQuery = graphql`
         title
         description
         keywords
-        logo {
-          publicURL
-          childImageSharp {
-            fluid(maxWidth: 300, maxHeight:300) {
-              src
-            }
-          }
-        }
         technologies
         services
         languages

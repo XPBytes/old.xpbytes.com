@@ -106,6 +106,8 @@ const LanguageIndicatorCircle = styled('span')`
   top: 1px;
   width: 0.65rem;
   margin-right: 0.3rem;
+  border: 1px solid white;
+  box-sizing: border-box;
 `
 
 const LanguageIndicatorWrapper = styled('span')`
