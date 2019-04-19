@@ -167,6 +167,10 @@ const Footer = styled('footer')`
   margin-top: 2rem;
   border-top: 1px dashed rgba(0, 0, 0, .17);
   padding-top: 0.5rem;
+
+  body.dark & {
+    border-top-color: rgba(255,255,255,.53);
+  }
 `
 export const OpenSourceSection: React.SFC<OpenSourceSectionProps> = (): JSX.Element => {
   return (

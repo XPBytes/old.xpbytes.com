@@ -1,0 +1,16 @@
+{
+  "@context" : "http://schema.org",
+  "@type" : "LocalBusiness",
+  "@id": "https://xpbytes.com/schema/LocalBusiness.jsonld",
+  "name" : "XP Bytes",
+  "image" : "https://xpbytes.com/images/logo.png",
+  "address" : {
+    "@type" : "PostalAddress",
+    "streetAddress" : "Stationsplein 45 #D2.117 (City Whoop)",
+    "addressLocality" : "Rotterdam",
+    "postalCode" : "3013 AK"
+  },
+  "url": "https://xpbytes.com",
+  "logo": "https://xpbytes.com/images/icon.png",
+  "priceRange": "$$$"
+}

@@ -1,0 +1,9 @@
+{
+  "@id": "https://xpbytes.com/schema/Organisation.jsonld",
+  "@type": "Organization",
+  "name": "XP Bytes",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://xpbytes.com/images/logo.png"
+  }
+}

@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, withPrefix } from "gatsby"
 import styled from '@emotion/styled'
-import { css } from '@emotion/core'
 
 import { Layout } from "../components/layout"
 import { SEO } from "../components/seo"
@@ -65,6 +64,12 @@ const Content = styled('div')`
   max-width: 700px;
   margin: 1rem;
   width: 100%;
+
+  & figcaption {
+    font-size: 14px;
+    font-style: italic;
+    margin-top: .5rem;
+  }
 `
 const Aside = styled('aside')`
   flex: 1 1 200px;
@@ -95,54 +100,27 @@ export default function Template({
         title={`Case Study: ${title}`}
         description={description}
         keywords={keywords}>
-        <script type="application/ld+json">
-          {`{
-            "@context": "https://schema.org",
-            "@type": "NewsArticle",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://xpbytes.com/case-studies/${path.split('/').slice(-1)[0]}"
-            },
-            "headline": "Case Study: ${title}",
-            "datePublished": "${publishedIsoDate}",
-            "dateModified": "${modifiedIsoDate}",
-            "author": {
-              "@type": "Person",
-              "name": "Derk-Jan Karrenbeld"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "XP Bytes",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://xpbytes.com/${STATIC_LOGO}"
-              }
-            },
-            "description": "${description}"
-          }`}
-        </script>
-        <script type="application/ld+json">
-          {`{
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Case Studies",
-                "item": "https://xpbytes.com/case-studies"
-              },{
-                "@type": "ListItem",
-                "position": 2,
-                "name": "${title}",
-                "item": "https://xpbytes.com${path}"
-              }
-            ]
-          }`}
-        </script>
       </SEO>
 
       <BackToHome />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html:
+        `{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Case Studies",
+              "item": "https://xpbytes.com/case-studies"
+            },{
+              "@type": "ListItem",
+              "position": 2,
+              "name": "${title}",
+              "item": "https://xpbytes.com${path}"
+            }
+          ]
+        }`}} />
 
       <Article>
         <Header>
@@ -165,6 +143,33 @@ export default function Template({
           <Services services={services} />
         </Aside>
 
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html:
+          `{
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://xpbytes.com${path}"
+            },
+            "headline": "Case Study: ${title}",
+            "datePublished": "${publishedIsoDate}",
+            "dateModified": "${modifiedIsoDate}",
+            "author": {
+              "@id": "https://derk-jan.com/schema/Person.jsonld",
+              "@type": "Person",
+              "name": "Derk-Jan Karrenbeld"
+            },
+            "publisher": {
+              "@id": "https://xpbytes.com/schema/Organisation.jsonld",
+              "@type": "Organization",
+              "name": "XP Bytes",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://xpbytes.com${STATIC_LOGO}"
+              }
+            },
+            "description": "${description}"
+          }`}} />
       </Article>
     </Layout>
   )

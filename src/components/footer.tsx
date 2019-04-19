@@ -33,12 +33,13 @@ export function Footer({ chambersOfCommerceNumber, vatIdNumber, address, postal,
   return (
     <Wrapper>
       <Inner role="contentinfo">
-        <script type="application/ld+json">
-          {`{
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html:
+          `{
             "@context" : "http://schema.org",
             "@type" : "LocalBusiness",
+            "@id": "https://xpbytes.com/schema/LocalBusiness.jsonld",
             "name" : "XP Bytes",
-            "image" : "http://xpbytes.com/images/logo.png",
+            "image" : "https://xpbytes.com/images/logo.png",
             "address" : {
               "@type" : "PostalAddress",
               "streetAddress" : "${address}",
@@ -46,9 +47,10 @@ export function Footer({ chambersOfCommerceNumber, vatIdNumber, address, postal,
               "postalCode" : "${postal}"
             },
             "url": "https://xpbytes.com",
-            "logo": "http://xpbytes.com/images/icon.png"
-          }`}
-        </script>
+            "logo": "https://xpbytes.com/images/icon.png",
+            "priceRange": "$$$"
+          }`
+        }} />
         <dl>
           <dt>Address</dt>
           <dd>

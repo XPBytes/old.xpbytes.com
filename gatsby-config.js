@@ -47,7 +47,20 @@ module.exports = {
         plugins: [
           {
             resolve: 'gatsby-remark-external-links'
-          }
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 700,
+              showCaptions: true,
+              withWebp: true,
+              tracedSVG: true,
+              quality: 90
+            },
+          },
         ]
       }
     },
@@ -75,7 +88,7 @@ module.exports = {
         background_color: '#F8F7FB',
         theme_color: '#252A34',
         display: 'minimal-ui',
-        icon: 'static/icon.png', // This path is relative to the root of the site.
+        icon: 'static/images/icon.png', // This path is relative to the root of the site.
       },
     },
 
