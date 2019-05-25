@@ -12,3 +12,12 @@ export const AsideCaption = styled('label')`
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
 `
+export const AsideOrderedList = styled('ol')`
+  list-style: none;
+  margin: 0 0 1.45rem;
+`
+
+export const AsideUnorderedList = styled('ul')`
+  list-style: none;
+  margin: 0 0 1.45rem;
+`

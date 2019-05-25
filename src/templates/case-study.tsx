@@ -10,6 +10,7 @@ import { Components } from '../components/case-studies/components'
 import { Languages } from '../components/case-studies/languages'
 import { Services } from '../components/case-studies/services'
 import { Technologies } from '../components/case-studies/technologies'
+import { Keywords } from "../components/case-studies/keywords";
 
 const STATIC_LOGO = withPrefix('/images/logo.png')
 
@@ -141,6 +142,7 @@ export default function Template({
           <Components components={components} />
           <Technologies technologies={technologies} />
           <Services services={services} />
+          <Keywords keywords={keywords} />
         </Aside>
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html:

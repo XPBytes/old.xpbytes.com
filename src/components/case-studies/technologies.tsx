@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { AsideHeading, AsideCaption } from './aside'
+import { AsideHeading, AsideCaption } from '../aside'
 
 const TechnologyList = styled('ul')`
   list-style: inside circle;

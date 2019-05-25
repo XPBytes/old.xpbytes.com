@@ -26,6 +26,6 @@ export const Image = (): JSX.Element => (
         }
       }
     `}
-    render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
+    render={(data): JSX.Element => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
   />
 )

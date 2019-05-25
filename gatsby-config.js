@@ -39,6 +39,15 @@ module.exports = {
       options: {
         name: 'case-studies',
         path: `${__dirname}/src/case-studies`,
+        plugins: [
+        ]
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'articles',
+        path: `${__dirname}/src/articles`,
       },
     },
     {
@@ -61,6 +70,9 @@ module.exports = {
               quality: 90
             },
           },
+          {
+            resolve: `gatsby-remark-prismjs`
+          }
         ]
       }
     },

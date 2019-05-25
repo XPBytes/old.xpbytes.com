@@ -2,6 +2,7 @@
 path: "/case-studies/blackgate/"
 published_date: "2019-04-08"
 modified_date: "2019-04-18"
+author: "Derk-Jan Karrenbeld"
 title: "BlackGATE"
 description: "XP Bytes helped Blackgate build a CMS on top of a legacy system using Ruby on Rails, Bootstrap and custom scripts, initially to ease the workload of their technicians but quickly turning into an amazing tool for their end-users."
 keywords: ["ruby", "ruby on rails", "rails", "asterisk", "voip", "boostrap"]
@@ -10,6 +11,7 @@ technologies: ["rails", "bootstrap", "asterisk"]
 services: []
 languages: ["Ruby", "HTML", "CSS", "CoffeeScript"]
 components: ["Customer CMS", "Legacy Adapter", "Output Asterisk Configuration"]
+listed: true
 ---
 
 [BlackGATE][0] is a Telecom organisation specialised in VoIP and
@@ -52,7 +54,7 @@ new client comes onboard.
 
 ## Results
 
-Due to the closure of [ThingsImplied][3] and miscalculation of the work-load,
+Due to the closure of [Things Implied][3] and miscalculation of the work-load,
 the project was not finished by us in its entirety, but the system has been in
 production for at least 5 year, is still being used and developed internally.
 

@@ -1,17 +1,16 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby';
-import { RelatedCaseStudies } from './related-case-studies';
+import { RelatedPublications } from './related-publications';
 
-
-export function CaseStudiesSection(): JSX.Element {
+export function PublicationsSection(): JSX.Element {
   return (
     <StaticQuery
       query={graphql`
         query {
           allMarkdownRemark(
-            filter: { frontmatter: { path: { regex: "^\/case-studies\/" }, listed: { eq: true } } }
-            sort: { order: ASC, fields: [frontmatter___title] }
-            limit: 1000
+            filter: { frontmatter: { path: { regex: "^\/articles\/" } } }
+            sort: { order: DESC, fields: [frontmatter___published_date] }
+            limit: 5
           ) {
             edges {
               node {
@@ -19,6 +18,7 @@ export function CaseStudiesSection(): JSX.Element {
                   title
                   description
                   path
+                  modifiedIsoDate: modified_date(formatString: "YYYY-MM-DD")
                 }
               }
             }
@@ -27,15 +27,14 @@ export function CaseStudiesSection(): JSX.Element {
       `}
       render={({ allMarkdownRemark: { edges } }): JSX.Element => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const caseStudies = edges.map((edge: any): any => {
+        const publications = edges.map((edge: any): any => {
           const { title, path, description, modifiedIsoDate } = edge.node.frontmatter
           return { title, path, description, modifiedIsoDate }
         })
-        return (<RelatedCaseStudies items={caseStudies} />)
+        return (<RelatedPublications items={publications} title="Recent Publications" filtered={true} />)
       }} />
   )
 }
 
-
 // make gatsby build happy
-export default CaseStudiesSection
+export default PublicationsSection

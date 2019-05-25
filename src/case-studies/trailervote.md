@@ -2,6 +2,7 @@
 path: "/case-studies/trailervote/"
 published_date: "2019-04-08"
 modified_date: "2019-04-11"
+author: "Derk-Jan Karrenbeld"
 title: "TrailerVote"
 description: "XP Bytes helped TrailerVote go from Tech Demo to working product, built for over 1 million users a minute, using Ruby on Rails, NodeJS and InfluxDB."
 keywords: ["ruby", "ruby on rails", "rails", "native", "sentry", "media types", "analytics", "time series database", "influxdb", "nodejs", "typescript", "react"]
@@ -10,6 +11,7 @@ technologies: ["rails", "react", "d3", "influxdb"]
 services: ["aws", "influxcloud", "papertrail", "sentry"]
 languages: ["Ruby", "TypeScript", "HTML", "CSS", "JavaScript", "Shell", "PHP"]
 components: ["Administrative CMS", "Analytics frontend", "API", "Background worker", "Content Digest storage"]
+listed: true
 ---
 
 [TrailerVote][0] is the exhibition industry's hottest growth tool. It provides
@@ -46,6 +48,8 @@ the applications; API format of responses were defined in [media types][2] and
 these were registered; [Node JS][4] (with TypeScript) was the primary candidate
 to generate views that the mobile SDKs could easily consume.
 
+![Phone screen showing a vote card of Deadpool 2 and the question "Do you want to watch this?" with a positive, neutral and negative feedback button](../images/trailervote/the-vote.png "In-cinema voting")
+
 Because we had to deal with a potentially gigantic amount of data when a movie
 screens across countries, and people vote, simultainously; because we wanted to
 be able to aggregate, display and transform votes over time; to comply with
@@ -60,6 +64,8 @@ million requests a minute.
 
 There was no longer a tech demo, but a complete eco-system and this has allowed
 [Trailervote][0] to showcase around the globe, with pilots starting everywhere.
+
+![Phone screen showing a list of movie cards under the heading "Movies I want to see"](../images/trailervote/the-reminder.png "GDPR-compliant reminders based on voting")
 
 [0]: https://trailervote.com/
 [1]: https://rubyonrails.org/

@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { AsideHeading, AsideCaption } from './aside'
+import { AsideHeading, AsideCaption } from '../aside'
 import knownServices from '../../data/services.json'
+import { ExternalLink } from '../external-link';
 
 const ServiceList = styled('dl')`
   margin: 0 0 1.45rem;
@@ -24,8 +25,12 @@ export function Services({ services }: { services: string[] }): JSX.Element | nu
       <AsideHeading>Services</AsideHeading>
       <AsideCaption>We've used these used these services.</AsideCaption>
       <ServiceList>
-        {services.map((service): JSX.Element => {
-          const { name, provides, url: href } = (knownServices as any)[service] || {}
+        {services.map((service): JSX.Element | null => {
+          if (!(service in knownServices)) {
+            return null
+          }
+
+          const { name, provides, url: href } = knownServices[service as keyof typeof knownServices]
           return (
             <ServiceIndicator
               service={service}
@@ -50,9 +55,7 @@ function ServiceIndicator({
   return (
     <>
       <dt>
-        <a rel="noopener noreferer" href={href}>
-          {name}
-        </a>
+        <ExternalLink href={href || '#'}>{name}</ExternalLink>
       </dt>
       <dd>{provides}</dd>
     </>

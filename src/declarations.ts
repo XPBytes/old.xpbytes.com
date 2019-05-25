@@ -1,6 +1,7 @@
-declare module JSX {
+// eslint-disable-next-line @typescript-eslint/no-namespace
+declare namespace JSX {
   interface IntrinsicElements {
-    "details-dialog": { children: any }
+    "details-dialog": { children: React.ReactNode }
   }
 }
 
