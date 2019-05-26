@@ -89,30 +89,32 @@ async function fetchMarkdownPages({ createPage, graphql }, { indices, path, temp
 
     index.keywords.forEach((keyword) => {
       ensureIndexer(keyword, indices.keywords).push(index)
-      ensureIndexer(keyword, indices.counts.keywords, 0)[keyword] += 1
+      ensureIndexer(keyword, indices.counts.keywords, 0)
+      indices.counts.keywords[keyword] += 1
     })
     index.languages.forEach((language) => {
       ensureIndexer(language, indices.languages).push(index)
-      ensureIndexer(language, indices.counts.languages, 0)[language] += 1
-
+      ensureIndexer(language, indices.counts.languages, 0)
+      indices.counts.languages[language] += 1
     })
   })
 }
 
 async function fetchIndexPages({ createPage }, { source, path, template, counts }) {
-  const sources = await source
-  const keys = Object.keys(sources)
+  const resolvedSource = await source
+  const resolvedCounts = await counts
+  const keys = Object.keys(resolvedSource)
 
   keys.forEach((key) => {
-    const index = sources[key].reduce((result, { type, ...source }) => {
-      ensureIndexer(type, result).push(source)
+    const index = resolvedSource[key].reduce((result, { type, ...singleSource }) => {
+      ensureIndexer(type, result).push(singleSource)
       return result
     }, {})
 
     createPage({
       path: path.replace('{key}', sluggify(key, slugOptions)),
       component: template,
-      context: { index, key, keys, counts }, // additional data can be passed via context
+      context: { index, key, keys, counts: resolvedCounts }, // additional data can be passed via context
     })
   })
 }

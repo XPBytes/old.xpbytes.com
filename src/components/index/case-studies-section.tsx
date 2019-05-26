@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { RelatedCaseStudies } from './related-case-studies';
 
 
-export function CaseStudiesSection(): JSX.Element {
+export function CaseStudiesSection({ title }: { title?: string | false }): JSX.Element {
   return (
     <StaticQuery
       query={graphql`
@@ -31,7 +31,7 @@ export function CaseStudiesSection(): JSX.Element {
           const { title, path, description, modifiedIsoDate } = edge.node.frontmatter
           return { title, path, description, modifiedIsoDate }
         })
-        return (<RelatedCaseStudies items={caseStudies} />)
+        return (<RelatedCaseStudies items={caseStudies} title={title} />)
       }} />
   )
 }

@@ -32,7 +32,14 @@ const Meta = styled('small')`
 function AllLink(): JSX.Element {
   return (<small>(<Link to={"/articles"}>show all</Link>)</small>)
 }
-export function RelatedPublications({ items, filtered, title }: { items: readonly any[], title?: string, filtered?: boolean }): JSX.Element | null {
+
+interface RelatedPublicationsProps {
+  items: readonly any[]
+  title?: string
+  filtered?: boolean
+}
+
+export function RelatedPublications({ items, filtered, title }: RelatedPublicationsProps): JSX.Element | null {
   if (items.length === 0) {
     return null
   }

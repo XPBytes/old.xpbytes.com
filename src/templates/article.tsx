@@ -110,6 +110,18 @@ const MetaList = styled('ul')`
   body.dark & {
     background: #151515;
   }
+
+  li {
+    width: 148px;
+  }
+
+  @media (min-width: 800px) {
+    justify-content: center;
+
+    li {
+      width: auto;
+    }
+  }
 `
 
 const MetaListItem = styled('li')`
@@ -125,7 +137,7 @@ export default function Template({
   return (
     <Layout>
       <SEO
-        title={`Article: ${title}`}
+        title={title}
         description={description}
         keywords={keywords}>
       </SEO>
@@ -139,7 +151,7 @@ export default function Template({
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Case Studies",
+              "name": "Articles",
               "item": "https://xpbytes.com/articles"
             },{
               "@type": "ListItem",

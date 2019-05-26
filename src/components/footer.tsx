@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled from "@emotion/styled"
 
 const Wrapper = styled('div')`
@@ -30,6 +30,8 @@ export interface FooterProps {
 }
 
 export function Footer({ chambersOfCommerceNumber, vatIdNumber, address, postal, city }: FooterProps): JSX.Element {
+  const currentYear = new Date().getFullYear()
+
   return (
     <Wrapper>
       <Inner role="contentinfo">
@@ -69,7 +71,7 @@ export function Footer({ chambersOfCommerceNumber, vatIdNumber, address, postal,
 
         <span>
           XP Bytes operates in collaboration with Delft Solutions and Things Implied.
-          © 2002 - {new Date().getFullYear()}
+          © 2012 - {currentYear}
         </span>
       </Inner>
     </Wrapper>

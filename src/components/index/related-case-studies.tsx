@@ -26,14 +26,14 @@ const Description = styled('p')`
   margin-bottom: 1rem;
 `
 
-export function RelatedCaseStudies({ items }: { items: readonly any[] }): JSX.Element | null {
+export function RelatedCaseStudies({ items, title: sectionTitle }: { items: readonly any[], title?: string | false }): JSX.Element | null {
   if (items.length === 0) {
     return null
   }
 
   return (
     <Section>
-      <SectionHeading>Case Studies</SectionHeading>
+      {sectionTitle !== false && (<SectionHeading>{ sectionTitle || 'Case Studies' }</SectionHeading>)}
       <List>
         {items.map(({ path, title, description }): JSX.Element => (
           <li key={path}>
