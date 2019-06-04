@@ -1,7 +1,7 @@
 ---
 path: "/articles/control-flow-in-reduce-inject-ruby/"
 published_date: "2019-05-23"
-modified_date: "2019-05-24"
+modified_date: "2019-06-03"
 author: "Derk-Jan Karrenbeld"
 author_id: "https://derk-jan.com/schema/Person.jsonld"
 title: "Control flow in reduce/inject"
@@ -251,14 +251,14 @@ Use [`each_with_object`][ref-each-with-object] when:
   **Note** that you’re not really _reducing_ the current collection to a
   _smaller_ result, but instead conditionally or unconditionally _map_ values.
 - you want logic in your block without repeating the result value (because you
-  _must_ provide a return value when using [`reduce`][reduce])
+  _must_ provide a return value when using [`reduce`][ref-reduce])
 
 ## My use case
 
-The reason I looked into control flow using reduce is because I was iteration
-through a list of value object that represented a migration. Without using
+The reason I looked into control flow using `reduce` is because I was iterating
+through a list of value objects that represented a migration path. Without using
 [`lazy`][ref-lazy], I wanted an elegant way of representing when these
-migrations should run, so used a semantic version. The migrations enumerable is
+migrations should run, so used semantic versioning. The migrations enumerable is
 a sorted list of migrations with a semantic version attached.
 
 ```ruby
@@ -300,6 +300,7 @@ The alternatives were less favourable:
 [ref-group-by]: https://ruby-doc.org/core/Enumerable.html#method-i-group_by
 [ref-take-while]: https://ruby-doc.org/core/Enumerable.html#method-i-take_while
 [ref-select]: https://ruby-doc.org/core/Enumerable.html#method-i-select
+[ref-lazy]: https://ruby-doc.org/core/Enumerator/Lazy.html
 [wiki-map-reduce]: https://en.wikipedia.org/wiki/MapReduce
 [blog-airbrake]: https://airbrake.io/blog/ruby-exception-handling/stopiteration
 
@@ -311,6 +312,7 @@ The alternatives were less favourable:
 - [Enumerable#`find`][ref-find]
 - [Enumerable#`group_by`][ref-group-by]
 - [Enumerable#`inject`][ref-inject]
+- [Enumerable#`lazy`][ref-lazy]
 - [Enumerable#`reduce`][ref-reduce]
 - [Enumerable#`select`][ref-select]
 - [Enumerable#`take_while`][ref-take-while]
@@ -320,4 +322,5 @@ The alternatives were less favourable:
 - [Range][ref-range]
 - [Set][ref-set]
 - [StopIteration][ref-stop-iteration]
+
 
