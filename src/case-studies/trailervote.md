@@ -48,7 +48,7 @@ the applications; API format of responses were defined in [media types][2] and
 these were registered; [Node JS][4] (with TypeScript) was the primary candidate
 to generate views that the mobile SDKs could easily consume.
 
-![Phone screen showing a vote card of Deadpool 2 and the question "Do you want to watch this?" with a positive, neutral and negative feedback button](../images/trailervote/the-vote.png "In-cinema voting")
+![Phone screen showing a vote card of Deadpool 2 and the question 'Do you want to watch this?' with a positive, neutral and negative feedback button](../images/trailervote/the-vote.png "In-cinema voting")
 
 Because we had to deal with a potentially gigantic amount of data when a movie
 screens across countries, and people vote, simultainously; because we wanted to
@@ -65,7 +65,7 @@ million requests a minute.
 There was no longer a tech demo, but a complete eco-system and this has allowed
 [Trailervote][0] to showcase around the globe, with pilots starting everywhere.
 
-![Phone screen showing a list of movie cards under the heading "Movies I want to see"](../images/trailervote/the-reminder.png "GDPR-compliant reminders based on voting")
+![Phone screen showing a list of movie cards under the heading 'Movies I want to see'](../images/trailervote/the-reminder.png "GDPR-compliant reminders based on voting")
 
 [0]: https://trailervote.com/
 [1]: https://rubyonrails.org/
