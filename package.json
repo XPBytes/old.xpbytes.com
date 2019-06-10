@@ -52,6 +52,7 @@
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
+    "gatsby-remark-autolink-headers": "^2.0.16",
     "prettier": "^1.17.1",
     "typescript": "^3.5.1",
     "typescript-styled-plugin": "^0.14.0"

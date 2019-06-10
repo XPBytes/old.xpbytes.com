@@ -49,11 +49,6 @@ const Article = styled('article')`
     margin-top: -.50325rem;
     margin-bottom: 1.275rem;
   }
-
-  h2, h3 {
-    margin-bottom: 0.75rem;
-    margin-top: 2.25rem;
-  }
 `
 
 const Header = styled('header')`
@@ -77,6 +72,67 @@ const Content = styled('div')`
     font-size: 14px;
     font-style: italic;
     margin-top: .5rem;
+  }
+
+  li {
+    margin: .5rem 0;
+    & > p {
+      margin: 0;
+    }
+  }
+
+  #table-of-contents + ul {
+    list-style-position: outside;
+    margin: 0;
+    padding: 0 1.4rem;
+
+    & li {
+      margin: 0;
+      padding: 0.2rem;
+    }
+  }
+
+  h2, h3 {
+    margin-bottom: 0.75rem;
+    margin-top: 2.25rem;
+  }
+
+  blockquote {
+    border-left: #8158f5 3px double;
+    margin: 0 0 1rem;
+    padding: 1rem 1rem 1px;
+    background: rgba(129, 88, 245, .05);
+
+    & > p {
+      margin-bottom: 1rem;
+    }
+
+    body.dark & {
+      background: rgba(129,88,245,.3);
+    }
+  }
+
+  table {
+    border: 1px solid rgba(129, 88, 245);
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    overflow-x: auto;
+    display: block;
+    font-size: 14px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+
+    th {
+      padding: 1rem;
+    }
+
+    td {
+      padding: .2rem;
+    }
   }
 `
 
@@ -125,7 +181,7 @@ const MetaList = styled('ul')`
 `
 
 const MetaListItem = styled('li')`
-  margin: -.5rem 1.5rem 1rem;
+  margin: 1.5rem 1.5rem 1rem;
 `
 
 export default function Template({

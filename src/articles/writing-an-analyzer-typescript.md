@@ -1,7 +1,7 @@
 ---
 path: "/articles/writing-an-analyzer-typescript/"
-published_date: "2019-06-10"
-modified_date: "2019-06-10"
+published_date: "2019-06-11"
+modified_date: "2019-06-11"
 author: "Derk-Jan Karrenbeld"
 author_id: "https://derk-jan.com/schema/Person.jsonld"
 title: "Writing a code analyzer in TypeScript"
@@ -45,37 +45,40 @@ constructed.
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [📝 The exercise](#%F0%9F%93%9D-the-exercise)
+- [📝 The exercise](#-the-exercise)
   - [JavaScript implementation](#javascript-implementation)
   - [TypeScript implementation](#typescript-implementation)
-- [💯 Optimal solutions](#%F0%9F%92%AF-optimal-solutions)
+- [💯 Optimal solutions](#-optimal-solutions)
   - [JavaScript solution](#javascript-solution)
   - [TypeScript solution](#typescript-solution)
-- [👩🏽‍💻 Analysing the code](#%F0%9F%91%A9%F0%9F%8F%BD%E2%80%8D%F0%9F%92%BB-analysing-the-code)
-  - [💬 Abstract Syntax Trees](#%F0%9F%92%AC-abstract-syntax-trees)
-  - [🏃🏽‍💨 Running the parser](#%F0%9F%8F%83%F0%9F%8F%BD%E2%80%8D%F0%9F%92%A8-running-the-parser)
-  - [🔎 Finding the main entrypoint](#%F0%9F%94%8E-finding-the-main-entrypoint)
-  - [🔎 Finding the top-level constant](#%F0%9F%94%8E-finding-the-top-level-constant)
+- [👩🏽‍💻 Analysing the code](#-analysing-the-code)
+  - [💬 Abstract Syntax Trees](#-abstract-syntax-trees)
+  - [🏃🏽‍💨 Running the parser](#-running-the-parser)
+  - [🔎 Finding the main entrypoint](#-finding-the-main-entrypoint)
+  - [🔎 Finding the top-level constant](#-finding-the-top-level-constant)
 - [The algorithm](#the-algorithm)
   - [Properties of objects](#properties-of-objects)
-  - ["Executing" a property](#%22executing%22-a-property)
+  - ["Executing" a property](#executing-a-property)
   - [Matching the identifiers](#matching-the-identifiers)
-- [✅ Automated Mentoring](#%E2%9C%85-automated-mentoring)
-  - [📦 Testing exports](#%F0%9F%93%A6-testing-exports)
+- [✅ Automated Mentoring](#-automated-mentoring)
+  - [📦 Testing exports](#-testing-exports)
     - [Inline exports](#inline-exports)
     - [Specifier exports](#specifier-exports)
     - [CommonJS exports](#commonjs-exports)
-- [🔀 Testing varations](#%F0%9F%94%80-testing-varations)
+- [🔀 Testing varations](#-testing-varations)
 - [Walking TypeScript Trees](#walking-typescript-trees)
-  - [🔑 Visitor Keys](#%F0%9F%94%91-visitor-keys)
-  - [📖 Type annotations](#%F0%9F%93%96-type-annotations)
+  - [🔑 Visitor Keys](#-visitor-keys)
+  - [📖 Type annotations](#-type-annotations)
   - [Class properties](#class-properties)
-  - [↩ Return types](#%E2%86%A9-return-types)
+  - [↩ Return types](#-return-types)
 - [Conclusion](#conclusion)
 - [Reference](#reference)
   - [Analyzer reference](#analyzer-reference)
   - [Exercism repositories](#exercism-repositories)
   - [Packages](#packages)
+
+![Photo called 'Feel the freedom' in Dungeness, United Kingdom, displaying a red Volkswagen Samba parked near brown house.](../images/articles/writing-an-analyzer-typescript/intro.jpg "Photo by Zoltan Tasi (https://unsplash.com/@zoltantasi) on Unsplash (https://unsplash.com/)")
+
 
 ## 📝 The exercise
 
@@ -1042,6 +1045,9 @@ provided an exact _variation_ of the optimal solution. There is enough surface
 to hook into the findings of the analyzer to provide meaningfull commentary,
 should the student not have provided an optimal solution.
 
+![Photo of Erasmusbrug, Rotterdam, The Netherlands, displaying gray concrete bridge near buildings.](../images/articles/writing-an-analyzer-typescript/outro.jpg "Photo by Miles Vanderlooven (https://unsplash.com/@mylesuk) on Unsplash (https://unsplash.com/)")
+
+
 [web-exercism]: https://exercism.io
 [web-track-javascript]: https://exercism.io/tracks/javascript
 [web-track-typescript]: https://exercism.io/tracks/typescript
@@ -1055,7 +1061,7 @@ should the student not have provided an optimal solution.
 [git-javascript-gigasecond]: https://github.com/exercism/javascript/blob/master/exercises/gigasecond/gigasecond.spec.js
 [git-typescript-gigasecond]: https://github.com/exercism/typescript/blob/master/exercises/gigasecond/gigasecond.test.ts
 [git-javascript-analyzer]: https://github.com/exercism/javascript-analyzer/blob/9ff332bb365bdb84c53e7b14064479ae13876fac/src/analyzers/utils
-[git-javascript-analyzer-gigasecond]: https://github.com/exercism/javascript-analyzer/tree/master/src/analyzers/gigasecond
+[git-javascript-analyzer-gigasecond]: https://github.com/exercism/javascript-analyzer/tree/40116841771cc3aeb6d3fbe645495be0a3a405a5/src/analyzers/gigasecond
 [git-extract-export]: https://github.com/exercism/javascript-analyzer/blob/9ff332bb365bdb84c53e7b14064479ae13876fac/src/analyzers/utils/extract_export.ts
 [git-extract-main-method]: https://github.com/exercism/javascript-analyzer/blob/9ff332bb365bdb84c53e7b14064479ae13876fac/src/analyzers/utils/extract_main_method.ts
 [git-find-top-level-constants]: https://github.com/exercism/javascript-analyzer/blob/9ff332bb365bdb84c53e7b14064479ae13876fac/src/analyzers/utils/find_top_level_constants.ts

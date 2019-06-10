@@ -58,6 +58,9 @@ module.exports = {
             resolve: 'gatsby-remark-external-links'
           },
           {
+            resolve: 'gatsby-remark-autolink-headers'
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               // It's important to specify the maxWidth (in pixels) of
