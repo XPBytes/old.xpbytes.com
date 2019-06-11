@@ -558,7 +558,7 @@ date['getTime']
 
 If there are parentheses behind the `MemberExpression`, the entire expression
 is parsed as a child of a `CallExpression`. This is also the case for
-parentheses following an _indentifier_.
+parentheses following an _identifier_.
 
 ```javascript
 date.getTime ( )
@@ -781,7 +781,7 @@ important properties and representations:
 There is also the variant of using the `object['accessor']`, where `accessor`
 is not an `Identifier` but a `Literal`, but otherwise that is the same.
 
-## 🔀 Testing varations
+## 🔀 Testing variations
 
 As mentioned before, there are many ways to write functions in JavaScript and
 TypeScript. In the [source code][git-javascript-analyzer] for the analyzer there
@@ -1042,7 +1042,7 @@ output of certain AST Parsers, you can write tooling yourself.
 The contents of this article, in a different format, is being used to
 automatically approve the `gigasecond` exercise, given that the student has
 provided an exact _variation_ of the optimal solution. There is enough surface
-to hook into the findings of the analyzer to provide meaningfull commentary,
+to hook into the findings of the analyzer to provide meaningful commentary,
 should the student not have provided an optimal solution.
 
 ![Photo of Erasmusbrug, Rotterdam, The Netherlands, displaying gray concrete bridge near buildings.](../images/articles/writing-an-analyzer-typescript/outro.jpg "Photo by Miles Vanderlooven (https://unsplash.com/@mylesuk) on Unsplash (https://unsplash.com/)")
