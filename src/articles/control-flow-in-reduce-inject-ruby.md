@@ -283,7 +283,7 @@ The alternatives were less favourable:
   so that would require me to have a bookkeeping variable keeping track of
   “migrated”. Bookkeeping variables are almost never necessary in Ruby.
 
-![Photo called "It’s Own Kind of Tranquility", displaying a series of windmills on either side of a 'water street (canal)' in Alblasserdam, The Netherlands](../images/articles/control-flow-in-reduce-inject-ruby/outro.jpg "Photo by Vishwas Katti (https://unsplash.com/@vishkatti) on Unsplash (https://unsplash.com/)")
+![Photo called 'It’s Own Kind of Tranquility', displaying a series of windmills on either side of a 'water street (canal)' in Alblasserdam, The Netherlands](../images/articles/control-flow-in-reduce-inject-ruby/outro.jpg "Photo by Vishwas Katti (https://unsplash.com/@vishkatti) on Unsplash (https://unsplash.com/)")
 
 [ref-reduce]: https://ruby-doc.org/core/Enumerable.html#method-i-reduce
 [ref-inject]: https://ruby-doc.org/core/Enumerable.html#method-i-inject
