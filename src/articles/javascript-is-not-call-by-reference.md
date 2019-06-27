@@ -40,7 +40,7 @@ First, I would like to make a few statements, after which Ill try to explore wha
 
 I've tried to look up the origins of the terms as mentioned above, and there is quite a bit of literature out there from the earlier programming languages.
 
-In [The Main Features of CPL (D. W. Barron et al., 1963)][ref-the-main-features-of-cpl]
+[The Main Features of CPL (D. W. Barron et al., 1963)][ref-the-main-features-of-cpl]:
 
 > Three modes of parameter call are possible; call by value (which is equivalent to the ALGOL call by value), call by substitution (equivalent to ALGOL call by name), and call by reference. In the latter case, the LH value of the actual parameter is handed over; this corresponds to the "call by simple name" suggested by Strachey and Wilkes (1961).
 
@@ -232,7 +232,7 @@ You can **not** affect the memory address of the _parameter_ directly in the lan
 
 The statement _Primitive Data Types are passed By Value and Objects are passed By Reference._ is **incorrect**.
 
-![Photo of the Centrale Bibliotheek in Rotterdam, The Netherlands: an industrial looking building with metalic walls and various yellow pipes on the side.](../images/articles/javascript-is-not-call-by-reference/intro.jpg "Photo by Boudewijn Huysmans (
+![Photo of the Centrale Bibliotheek in Rotterdam, The Netherlands: an industrial looking building with metalic walls and various yellow pipes on the side.](../images/articles/javascript-is-not-call-by-reference/outro.jpg "Photo by Boudewijn Huysmans (
 https://unsplash.com/@boudewijn_huysmans) on Unsplash (https://unsplash.com/)")
 
 
