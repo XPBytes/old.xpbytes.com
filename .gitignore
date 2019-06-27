@@ -72,3 +72,4 @@ yarn-error.log
 .env.development
 .env.production
 .env.local
+deploy.sh
