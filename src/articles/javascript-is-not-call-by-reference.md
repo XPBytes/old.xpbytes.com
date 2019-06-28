@@ -318,7 +318,7 @@ The lesser used and known term that was coined is **Call by sharing** which
 applies to Ruby, JavaScript, Python, Java and so forth. It implies that all
 values are object, all values are boxed, and they copy a reference when they
 pass it _as value_. Unfortunately, in literature, the usage of this concept is
-not concistent, which is also why it's probably less known or used.
+not consistent, which is also why it's probably less known or used.
 
 For the purpose of this article, call-by-sharing is `call by value`, but the
 value is always a reference.
@@ -337,7 +337,7 @@ to. That is, you may affect the memory the parameter points to.
 The statement _Primitive Data Types are passed By Value and Objects are passed
 By Reference._ is **incorrect**.
 
-![Photo of the Centrale Bibliotheek in Rotterdam, The Netherlands: an industrial looking building with metalic walls and various yellow pipes on the side.](../images/articles/javascript-is-not-call-by-reference/outro.jpg "Photo by Boudewijn Huysmans (https://unsplash.com/@boudewijn_huysmans) on Unsplash (https://unsplash.com/)")
+![Photo of the Centrale Bibliotheek in Rotterdam, The Netherlands: an industrial looking building with metallic walls and various yellow pipes on the side.](../images/articles/javascript-is-not-call-by-reference/outro.jpg "Photo by Boudewijn Huysmans (https://unsplash.com/@boudewijn_huysmans) on Unsplash (https://unsplash.com/)")
 
 
 [ref-semantic-models-of-parameter-passing]: http://www.cs.colorado.edu/department/publications/reports/docs/CU-CS-016-73.pdf
