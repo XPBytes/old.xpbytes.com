@@ -61,7 +61,7 @@ quite a bit of literature out there from the earlier programming languages.
 > suggested by Strachey and Wilkes (1961).
 
 It is important to note that here the literature talks about _mode of parameter
-call_. It further distringuishes three _modes_: `call by value`, `call by name`
+call_. It further distinguishes three _modes_: `call by value`, `call by name`
 and `call by reference`.
 
 Further literature gives a good, yet technical, definition of these three and a
@@ -113,7 +113,7 @@ propagated to the caller.
 Roughly, this means that, just like before, the parameter is evaluated, but,
 unlike before, the _memory address_ (`address` / `name`) is passed to the
 function (`procedure`). Changes made to the parameter inside the function
-(`formal parameter`) are actualy made on the memory address and therefore
+(`formal parameter`) are actually made on the memory address and therefore
 propagate back to the caller.
 
 > ☕ When you go to a support store for one of your hardware devices and ask for
@@ -253,18 +253,18 @@ location in memory.
 first_array   = []
 second_array  = []
 
-first     = 👉🏽 first_array
-list      = copy(first) = 👉🏽 first_array
-list.push = (👉🏽 first_array).push(...)
+first         = 👉🏽 first_array
+list          = copy(first) = 👉🏽 first_array
+list.push     = (👉🏽 first_array).push(...)
 
-//        => (👉🏽 first_array) was changed
+// => (👉🏽 first_array) was changed
 
-second    = 👉🏽 second_array
-list      = copy(second) = 👉🏽 second_array
+second        = 👉🏽 second_array
+list          = copy(second) = 👉🏽 second_array
 replace_array = []
-list      = 👉🏽 replace_array
+list          = 👉🏽 replace_array
 
-//        => (👉🏽 second_array) was not changed
+// => (👉🏽 second_array) was not changed
 ```
 
 ### What about pointers?
@@ -337,8 +337,7 @@ to. That is, you may affect the memory the parameter points to.
 The statement _Primitive Data Types are passed By Value and Objects are passed
 By Reference._ is **incorrect**.
 
-![Photo of the Centrale Bibliotheek in Rotterdam, The Netherlands: an industrial looking building with metalic walls and various yellow pipes on the side.](../images/articles/javascript-is-not-call-by-reference/outro.jpg "Photo by Boudewijn Huysmans (
-https://unsplash.com/@boudewijn_huysmans) on Unsplash (https://unsplash.com/)")
+![Photo of the Centrale Bibliotheek in Rotterdam, The Netherlands: an industrial looking building with metalic walls and various yellow pipes on the side.](../images/articles/javascript-is-not-call-by-reference/outro.jpg "Photo by Boudewijn Huysmans (https://unsplash.com/@boudewijn_huysmans) on Unsplash (https://unsplash.com/)")
 
 
 [ref-semantic-models-of-parameter-passing]: http://www.cs.colorado.edu/department/publications/reports/docs/CU-CS-016-73.pdf
