@@ -70,7 +70,7 @@ Roughly, this means that, just like before, the parameter is evaluated, but, unl
 
 This is not the complete picture. There is one vital part left that causes _most of the confusion_. Right now I'll explain what a **reference type** is, which has _nothing_ to do with arguments/parameters or function calls.
 
-Reference types and value types are usually explained in the context of how a programming language stores values inside the memory, which also explains why some languages choose to have both, but this entire concept is worthy of (a series of) articles on its own. The [wikipedia page][wiki-reference-types] is, in my opinion, not very informative, but it does refer to various language specs that do go into technical detail.
+Reference types and value types are usually explained in the context of how a programming language stores values inside the memory, which also explains why some languages choose to have both, but this entire concept is worthy of (a series of) articles on its own. The [wikipedia page][wiki-reference-type] is, in my opinion, not very informative, but it does refer to various language specs that do go into technical detail.
 
 > A data type is a **value type** if it holds a data value within its own memory space. It means variables of these data types directly contain their values.
 >
@@ -81,8 +81,6 @@ In short, a **reference type** is a type that points to a value somewhere in mem
 > ☕ When you make a payment online, and enter your _bank account number details_, for example your card number, the card itself can not be changed. However, the bank account's balance will be affected. You can see your card as a reference to your balance (and multiple cards can all reference the same balance).
 >
 > ☕ When you pay offline, that is with cash, the money leaves your wallet. Your wallet holds its own value, just like the cash inside your wallet. The value is directly where the wallet/cash is.
-
-The above is _important_ because in JavaScript and Ruby, **
 
 ## Show me the code proof
 
@@ -154,7 +152,6 @@ second
 ```
 
 In the first example it outputs `[1]`, because the `push` method modifies the object on which it is called (the object is referenced from the name `list`). This propagates because the `list` argument still refers to the original object `first` (its reference was copied and passed as a value. `list` points to that copy, but points to the same data in memory, because `Object` is a reference type).
-
 
 In the second example it outputs `[]` because the re-assignment doesn't propagate to the caller. In the end it is not re-assigning the _original reference_ but only a copy.
 
