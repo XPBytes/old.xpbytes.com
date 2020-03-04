@@ -6,15 +6,18 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'XP Bytes',
-    description: 'Dutch software agency specializing in custom -- tailored -- software.',
+    description:
+      'Dutch software agency specializing in custom -- tailored -- software.',
     author: '@SleeplessByte',
     company: {
       chambersOfCommerceNumber: '57500142',
       vatIdNumber: 'NL206499644B01',
-      address: 'Stationsplein 45 #D2.117 (City Whoop)',
-      postal: '3013 AK',
-      city: 'Rotterdam'
-    }
+      address1: 'Millennium Tower',
+      address2: 'Weena 690 (26.08)',
+      address: 'Weena 690 (26.08)',
+      postal: '3012 CN',
+      city: 'Rotterdam',
+    },
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -39,8 +42,7 @@ module.exports = {
       options: {
         name: 'case-studies',
         path: `${__dirname}/src/case-studies`,
-        plugins: [
-        ]
+        plugins: [],
       },
     },
     {
@@ -55,10 +57,10 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-external-links'
+            resolve: 'gatsby-remark-external-links',
           },
           {
-            resolve: 'gatsby-remark-autolink-headers'
+            resolve: 'gatsby-remark-autolink-headers',
           },
           {
             resolve: `gatsby-remark-images`,
@@ -70,26 +72,26 @@ module.exports = {
               showCaptions: true,
               withWebp: true,
               tracedSVG: true,
-              quality: 90
+              quality: 90,
             },
           },
           {
-            resolve: `gatsby-remark-prismjs`
-          }
-        ]
-      }
+            resolve: `gatsby-remark-prismjs`,
+          },
+        ],
+      },
     },
     // 'gatsby-mdx',
     {
       resolve: 'gatsby-source-graphql',
       options: {
-        typeName: "GitHub",
-        fieldName: "github",
-        url: "https://api.github.com/graphql",
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
         headers: {
-          Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`
-        }
-      }
+          Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+        },
+      },
     },
     'gatsby-plugin-emotion',
     'gatsby-transformer-sharp',
@@ -114,8 +116,8 @@ module.exports = {
       resolve: 'gatsby-plugin-fathom',
       options: {
         trackingUrl: 'xpbytes.usesfathom.com',
-        siteId: process.env.FATHOM_SITE_ID
-      }
+        siteId: process.env.FATHOM_SITE_ID,
+      },
     },
 
     // this (optional) plugin enables Progressive Web App + Offline functionality

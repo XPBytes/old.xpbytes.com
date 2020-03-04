@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react'
-import styled from "@emotion/styled"
+import React from 'react'
+import styled from '@emotion/styled'
 
 const Wrapper = styled('div')`
-  background: #252A34;
+  background: #252a34;
   color: white;
   width: 100%;
   box-sizing: border-box;
@@ -24,19 +24,29 @@ const Inner = styled('footer')`
 export interface FooterProps {
   chambersOfCommerceNumber: string
   vatIdNumber: string
-  address: string
+  address1: string
+  address2: string
   postal: string
   city: string
 }
 
-export function Footer({ chambersOfCommerceNumber, vatIdNumber, address, postal, city }: FooterProps): JSX.Element {
+export function Footer({
+  chambersOfCommerceNumber,
+  vatIdNumber,
+  address1,
+  address2,
+  postal,
+  city,
+}: FooterProps): JSX.Element {
   const currentYear = new Date().getFullYear()
 
   return (
     <Wrapper>
       <Inner role="contentinfo">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html:
-          `{
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `{
             "@context" : "http://schema.org",
             "@type" : "LocalBusiness",
             "@id": "https://xpbytes.com/schema/LocalBusiness.jsonld",
@@ -44,20 +54,24 @@ export function Footer({ chambersOfCommerceNumber, vatIdNumber, address, postal,
             "image" : "https://xpbytes.com/images/logo.png",
             "address" : {
               "@type" : "PostalAddress",
-              "streetAddress" : "${address}",
+              "streetAddress" : "${address2}",
               "addressLocality" : "${city}",
               "postalCode" : "${postal}"
             },
             "url": "https://xpbytes.com",
             "logo": "https://xpbytes.com/images/icon.png",
             "priceRange": "$$$"
-          }`
-        }} />
+          }`,
+          }}
+        />
         <dl>
           <dt>Address</dt>
           <dd>
             <address>
-              {address}<br />
+              {address1}
+              <br />
+              {address2}
+              <br />
               {postal}, {city}
             </address>
           </dd>
@@ -70,8 +84,8 @@ export function Footer({ chambersOfCommerceNumber, vatIdNumber, address, postal,
         </dl>
 
         <span>
-          XP Bytes operates in collaboration with Delft Solutions and Things Implied.
-          © 2012 - {currentYear}
+          XP Bytes operates in collaboration with Delft Solutions. © 2012 -{' '}
+          {currentYear}
         </span>
       </Inner>
     </Wrapper>
