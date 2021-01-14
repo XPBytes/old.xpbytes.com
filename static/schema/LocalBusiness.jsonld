@@ -1,14 +1,14 @@
 {
-  "@context" : "http://schema.org",
-  "@type" : "LocalBusiness",
+  "@context": "http://schema.org",
+  "@type": "LocalBusiness",
   "@id": "https://xpbytes.com/schema/LocalBusiness.jsonld",
-  "name" : "XP Bytes",
-  "image" : "https://xpbytes.com/images/logo.png",
-  "address" : {
-    "@type" : "PostalAddress",
-    "streetAddress" : "Weena 690 (26.08)",
-    "addressLocality" : "Rotterdam",
-    "postalCode" : "3012 CN"
+  "name": "XP Bytes",
+  "image": "https://xpbytes.com/images/logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Weena 690 (26.15)",
+    "addressLocality": "Rotterdam",
+    "postalCode": "3012 CN"
   },
   "url": "https://xpbytes.com",
   "logo": "https://xpbytes.com/images/icon.png",
