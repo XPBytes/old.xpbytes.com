@@ -53,7 +53,7 @@ export function RelatedPublications({ items, filtered, title }: RelatedPublicati
             <Article>
               <header>
                 <Title><Link to={path}>{title}</Link></Title>
-                <Meta><span aria-label="Published on:" title="Published on:">📅</span> <time dateTime={modifiedIsoDate}>{
+                <Meta><span hidden aria-label="Published on:" title="Published on:">📅</span> <time dateTime={modifiedIsoDate}>{
                   new Date(modifiedIsoDate).toLocaleDateString(undefined, { month: 'long', year: 'numeric', day: 'numeric' })
                 }</time></Meta>
               </header>
