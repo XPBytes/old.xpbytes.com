@@ -5,16 +5,18 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'XP Bytes',
+    title: 'XP Bytes B.V.',
     description:
       'Dutch software agency specializing in custom -- tailored -- software.',
     author: '@SleeplessByte',
     company: {
-      chambersOfCommerceNumber: '57500142',
-      vatIdNumber: 'NL206499644B01',
+      chambersOfCommerceNumber: '80993907',
+      chambersOfCommerceNumberUsa: '81039131',
+      vatIdNumber: '',
+      vatIdNumberUsa: '',
       address1: 'Millennium Tower',
-      address2: 'Weena 690 (26.08)',
-      address: 'Weena 690 (26.08)',
+      address2: 'Weena 690 (26.15)',
+      address: 'Weena 690 (26.15)',
       postal: '3012 CN',
       city: 'Rotterdam',
     },
