@@ -1,6 +1,6 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby';
-import { RelatedPublications } from './related-publications';
+import { StaticQuery, graphql } from 'gatsby'
+import { RelatedPublications } from './related-publications'
 
 export function PublicationsSection(): JSX.Element {
   return (
@@ -8,7 +8,7 @@ export function PublicationsSection(): JSX.Element {
       query={graphql`
         query {
           allMarkdownRemark(
-            filter: { frontmatter: { path: { regex: "^\/articles\/" } } }
+            filter: { frontmatter: { path: { regex: "^/articles/" } } }
             sort: { order: DESC, fields: [frontmatter___published_date] }
             limit: 5
           ) {
@@ -28,11 +28,23 @@ export function PublicationsSection(): JSX.Element {
       render={({ allMarkdownRemark: { edges } }): JSX.Element => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const publications = edges.map((edge: any): any => {
-          const { title, path, description, modifiedIsoDate } = edge.node.frontmatter
+          const {
+            title,
+            path,
+            description,
+            modifiedIsoDate,
+          } = edge.node.frontmatter
           return { title, path, description, modifiedIsoDate }
         })
-        return (<RelatedPublications items={publications} title="Recent Publications" filtered={true} />)
-      }} />
+        return (
+          <RelatedPublications
+            items={publications}
+            title="Latest Publications"
+            filtered={true}
+          />
+        )
+      }}
+    />
   )
 }
 
