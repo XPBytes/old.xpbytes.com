@@ -125,6 +125,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   const caseStudyTemplate = path.resolve(`src/templates/case-study.tsx`)
   const articleTemplate = path.resolve(`src/templates/article.tsx`)
+  const presentationTemplate= path.resolve(`src/templates/presentation.tsx`)
 
   const authorTemplate = path.resolve(`src/templates/author.tsx`)
   const keywordTemplate = path.resolve(`src/templates/keyword.tsx`)
@@ -143,29 +144,34 @@ exports.createPages = ({ actions, graphql }) => {
 
   const caseStudies = fetchMarkdownPages(
     { createPage, graphql },
-    { indices, path: 'case-studies', template: caseStudyTemplate }
+    { indices, path: 'case-studies/', template: caseStudyTemplate }
   )
   const articles = fetchMarkdownPages(
     { createPage, graphql },
-    { indices, path: 'articles', template: articleTemplate }
+    { indices, path: 'articles/', template: articleTemplate }
+  )
+
+  const presentations = fetchMarkdownPages(
+    { createPage, graphql },
+    { indices, path: 'presentations/', template: presentationTemplate }
   )
 
   const allIndices = Promise.all([caseStudies, articles])
 
   const languages = fetchIndexPages({ createPage }, {
-    path: '/languages/{key}',
+    path: '/languages/{key}/',
     template: languageTemplate,
     source: allIndices.then(() => indices.languages),
     counts: allIndices.then(() => indices.counts.languages)
   })
   const keywords = fetchIndexPages({ createPage }, {
-    path: '/keywords/{key}',
+    path: '/keywords/{key}/',
     template: keywordTemplate,
     source: allIndices.then(() => indices.keywords),
     counts: allIndices.then(() => indices.counts.keywords)
   })
   const authors = fetchIndexPages({ createPage }, {
-    path: '/authors/{key}',
+    path: '/authors/{key}/',
     template: authorTemplate,
     source: allIndices.then(() => indices.authors),
     counts: {}
@@ -174,6 +180,7 @@ exports.createPages = ({ actions, graphql }) => {
   return Promise.all([
     caseStudies,
     articles,
+    presentations,
     allIndices,
     languages,
     authors,

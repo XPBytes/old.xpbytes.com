@@ -54,7 +54,8 @@ queries: [
 interface CompanyData {
   chambersOfCommerceNumber: string
   vatIdNumber: string
-  address: string
+  address1: string
+  address2: string
   postal: string
   city: string
 }
@@ -72,7 +73,8 @@ export const Layout: React.SFC<LayoutProps> = ({ children }): JSX.Element => (
               company {
                 chambersOfCommerceNumber
                 vatIdNumber
-                address
+                address1
+                address2
                 postal
                 city
               }

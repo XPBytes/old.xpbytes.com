@@ -161,6 +161,14 @@ figure {
   padding: 0;
 }
 
+figure.gatsby-resp-image-figure picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 #use-dark-mode-toggle .react-toggle {
   fill: white;
   vertical-align: bottom;

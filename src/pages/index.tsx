@@ -15,7 +15,7 @@ import useDarkMode from 'use-dark-mode'
 import Toggle from 'react-toggle'
 import 'react-toggle/style.css'
 
-const IndexPage = (): JSX.Element => {
+function IndexPage(): JSX.Element {
   const { value, toggle: toggleTheme } = useDarkMode(false, { classNameDark: 'dark', classNameLight: 'light', storageKey: 'dark-mode' });
   const theme = value ? 'dark' : 'light'
   return (
